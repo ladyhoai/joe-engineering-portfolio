@@ -116,85 +116,96 @@ export default function Home() {
                             </p>
                         </div>
                     </Link>
-                    {/* Selfie sketching robot */}
-                    <div className="bg-gray-700 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition 
-                                    cursor-pointer hover:ring hover:ring-blue-400 hover:ring-offset-2 group">
-                        <img 
-                            src="/Sketch.png"
-                            alt="Draw"
-                            className="w-full h-48 object-cover rounded-lg mb-4"
-                        />
 
-                        <h3 className="text-xl font-bold mb-2 text-white text-left group-hover:underline">Selfie Sketcher</h3>
-                        <p className="text-white text-left">
-                            Using UR3e robot arm and a genetic algorithm to process and draw a highly accurate replica of a given image by pencil on A4 paper. 
-                        </p>
-                    </div>
+                    {/* Selfie sketching robot */}
+                    <Link to="projects/sketch" className="block">
+                        <div className="bg-gray-700 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition 
+                                        cursor-pointer hover:ring hover:ring-blue-400 hover:ring-offset-2 group">
+                            <img 
+                                src="/Sketch.png"
+                                alt="Draw"
+                                className="w-full h-48 object-cover rounded-lg mb-4"
+                            />
+
+                            <h3 className="text-xl font-bold mb-2 text-white text-left group-hover:underline">Selfie Sketcher</h3>
+                            <p className="text-white text-left">
+                                Using UR3e robot arm and a genetic algorithm to process and draw a highly accurate replica of a given image by pencil on A4 paper. 
+                            </p>
+                        </div>
+                    </Link>
 
                     {/* Matlab simulation of 2 robot arms */}
-                    <div className="bg-gray-700 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition 
-                                    cursor-pointer hover:ring hover:ring-blue-400 hover:ring-offset-2 group">
-                        <img 
-                            src="/4inarowo2.gif"
-                            alt="Dual Cobot"
-                            className="w-full h-48 object-cover rounded-lg mb-4"
-                        />
+                    <Link to="projects/FIAR" className="block">
+                        <div className="bg-gray-700 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition 
+                                        cursor-pointer hover:ring hover:ring-blue-400 hover:ring-offset-2 group">
+                            <img 
+                                src="/4inarowo2.gif"
+                                alt="Dual Cobot"
+                                className="w-full h-48 object-cover rounded-lg mb-4"
+                            />
 
-                        <h3 className="text-xl font-bold mb-2 text-white text-left truncate max-w-xs group-hover:underline" 
-                        title="Four in a Row - MATLAB Dual Cobot Simulation">Four in a Row - MATLAB Dual Cobot Simulation</h3>
+                            <h3 className="text-xl font-bold mb-2 text-white text-left truncate max-w-xs group-hover:underline" 
+                            title="Four in a Row - MATLAB Dual Cobot Simulation">Four in a Row - MATLAB Dual Cobot Simulation</h3>
 
-                        <p className="text-white text-left">
-                            MATLAB simulation featuring a FANUC CRX10IA robot autonomously playing Four in a Row against 
-                            an UR3e controlled by the human opponents.
-                        </p>
-                    </div>
+                            <p className="text-white text-left">
+                                MATLAB simulation featuring a FANUC CRX10IA robot autonomously playing Four in a Row against 
+                                an UR3e controlled by the human opponents.
+                            </p>
+                        </div>
+                    </Link>
 
                     {/* Warman 2024 */}
-                    <div className="bg-gray-700 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition 
-                                    cursor-pointer hover:ring hover:ring-blue-400 hover:ring-offset-2 group">
-                        <div className="w-full h-48 rounded-lg mb-4 bg-center bg-cover"
-                            style={{
-                                backgroundImage: "url('/CatBot.PNG')",
-                                backgroundSize: "145%", // Zoom level
-                                backgroundPosition: "center"
-                            }}
-                        ></div>
+                    <Link to="projects/warman" className="block">
+                        <div className="bg-gray-700 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition 
+                                        cursor-pointer hover:ring hover:ring-blue-400 hover:ring-offset-2 group">
+                            <div className="w-full h-48 rounded-lg mb-4 bg-center bg-cover"
+                                style={{
+                                    backgroundImage: "url('/CatBot.PNG')",
+                                    backgroundSize: "145%", // Zoom level
+                                    backgroundPosition: "center"
+                                }}
+                            ></div>
 
-                        <h3 className="text-xl font-bold mb-2 text-white text-left group-hover:underline">Warman Challenge 2024 Robot</h3>
-                        <p className="text-white text-left">
-                            Custom-made autonomous robot to pick up and deposit 6 tennis balls located at different heights on the Warman 2024 track.   
-                        </p>
-                    </div>
+                            <h3 className="text-xl font-bold mb-2 text-white text-left group-hover:underline">Warman Challenge 2024 Robot</h3>
+                            <p className="text-white text-left">
+                                Custom-made autonomous robot to pick up and deposit 6 tennis balls located at different heights on the Warman 2024 track.   
+                            </p>
+                        </div>
+                    </Link>
                     
-                    {/* Robot arm */}
-                    <div className="bg-gray-700 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition 
-                                    cursor-pointer hover:ring hover:ring-blue-400 hover:ring-offset-2 group">
-                        <img 
-                            src="/robotArm.jpg"
-                            alt="Chess"
-                            className="w-full h-48 object-cover rounded-lg mb-4"
-                        />
+                    <Link to="projects/arm" className="block">
+                        {/* Robot arm */}
+                        <div className="bg-gray-700 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition 
+                                        cursor-pointer hover:ring hover:ring-blue-400 hover:ring-offset-2 group">
+                            <img 
+                                src="/robotArm.jpg"
+                                alt="Chess"
+                                className="w-full h-48 object-cover rounded-lg mb-4"
+                            />
 
-                        <h3 className="text-xl font-bold mb-2 text-white text-left group-hover:underline">5 DOFs 3D Printed Robot Arm</h3>
-                        <p className="text-white text-left">
-                            5 Degrees of Freedom (DOF) robot arm, with the reach of 600mm and mostly printed in PLA, driven by NEMA17 stepper motors. 
-                        </p>
-                    </div>
+                            <h3 className="text-xl font-bold mb-2 text-white text-left group-hover:underline">5 DOFs 3D Printed Robot Arm</h3>
+                            <p className="text-white text-left">
+                                5 Degrees of Freedom (DOF) robot arm, with the reach of 600mm and mostly printed in PLA, driven by NEMA17 stepper motors. 
+                            </p>
+                        </div>
+                    </Link>
 
-                    {/* Robot arm */}
-                    <div className="bg-gray-700 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition 
-                                    cursor-pointer hover:ring hover:ring-blue-400 hover:ring-offset-2 group">
-                        <img 
-                            src="/car.png"
-                            alt="Chess"
-                            className="w-full h-48 object-cover rounded-lg mb-4"
-                        />
+                    {/* Global Surveillance Vehicle */}
+                    <Link to="projects/GSV" className="block">
+                        <div className="bg-gray-700 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition 
+                                        cursor-pointer hover:ring hover:ring-blue-400 hover:ring-offset-2 group">
+                            <img 
+                                src="/car.png"
+                                alt="Chess"
+                                className="w-full h-48 object-cover rounded-lg mb-4"
+                            />
 
-                        <h3 className="text-xl font-bold mb-2 text-white text-left group-hover:underline">Global Surveillance Vehicle</h3>
-                        <p className="text-white text-left">
-                            Robot remote-controlled via the cellular network, capable of near real-time, 2-way audio and video transmission, using custom ECU and firmware. 
-                        </p>
-                    </div>
+                            <h3 className="text-xl font-bold mb-2 text-white text-left group-hover:underline">Global Surveillance Vehicle</h3>
+                            <p className="text-white text-left">
+                                Robot remote-controlled via the cellular network, capable of near real-time, 2-way audio and video transmission, using custom ECU and firmware. 
+                            </p>
+                        </div>
+                    </Link>
 
                 </div>
             </section>
