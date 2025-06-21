@@ -218,7 +218,7 @@ export default function Home() {
 
                 {/* Right: Contact Form */}
                 <div className="flex justify-center items-center min-h-[300px]">
-                    <form className="space-y-6 bg-black p-6 rounded-xl shadow-md max-w-md w-full" 
+                    <form className="space-y-6 border p-6 rounded-xl shadow-md max-w-md w-full" 
                             action="https://formspree.io/f/xdkzzevy" method="POST">
                         <div>
                             <label htmlFor="name" className="block text-lg font-medium mb-1">Name</label>
