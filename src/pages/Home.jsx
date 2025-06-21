@@ -202,7 +202,7 @@ export default function Home() {
 
                             <h3 className="text-xl font-bold mb-2 text-white text-left group-hover:underline">Global Surveillance Vehicle</h3>
                             <p className="text-white text-left">
-                                Robot remote-controlled via the cellular network, capable of near real-time, 2-way audio and video transmission, using custom ECU and firmware. 
+                                Robot controlled via the cellular network, capable of near real-time, 2-way audio and video transmission, using custom ECU and firmware. 
                             </p>
                         </div>
                     </Link>

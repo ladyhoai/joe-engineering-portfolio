@@ -20,7 +20,7 @@ export default function Arm() {
                         alt="Profile"
                         className="w-auto h-110 rounded-2xl shadow-lg"
                     />
-
+    
                     <img 
                         src="/chessImg/coverPic2.jpeg"
                         alt="Profile"
