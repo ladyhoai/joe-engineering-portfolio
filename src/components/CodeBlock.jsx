@@ -9,3 +9,5 @@ export default function CodeBlock({ code, language = 'cpp' }) {
     </SyntaxHighlighter>
   );
 }
+
+

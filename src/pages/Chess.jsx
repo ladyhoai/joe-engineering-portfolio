@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ExternalLink from '../components/ExternalLink';
 import CodeBlock from '../components/CodeBlock';
 
@@ -35,26 +35,32 @@ double x_from_base = -(H1_X + dx * cos(yaw) - dy * sin(yaw));
 double y_from_base = -(H1_Y + dx * sin(yaw) + dy * cos(yaw));`
 
 export default function Chess() {
+    useEffect(() => {
+        window.scrollTo(0, 0); // or: { top: 0, behavior: 'smooth' }
+      }, []);
+    
     return (
         <div className="flex min-h-screen">
             {/* Sidebar Table of Contents */}
-            <aside className="w-64 bg-[#1d1d1d] text-white p-4 fixed top-16 left-0 h-[calc(100vh-4rem)] overflow-y-auto shadow-md z-40 hidden md:block">
-                <h2 className="text-xl font-semibold mb-4">Table of Contents</h2>
-                <nav aria-label="Table of contents">
-                    <ol className="list-decimal list-inside space-y-2 text-lg text-left">
-                        <li><a href="#Overview" className="!text-white hover:underline">Overview</a></li>
-                        <li><a href="#Setup" className="!text-white hover:underline">Hardware Setup & System Architecture</a></li>
-                        <li><a href="#Stockfish" className="!text-white hover:underline">GUI & Stockfish ROS 2 Node</a></li>
-                        <li><a href="#Control" className="!text-white hover:underline">UR3e Robot Control Node</a></li>
-                        <li><a href="#Vision" className="!text-white hover:underline">Computer Vision for Player Move Detection</a></li>
-                        <li><a href="#Discussion" className="!text-white hover:underline">Discussion & Potential Improvements</a></li>
-                    </ol>
-                </nav>
+            <aside className="w-64 bg-[#1d1d1d] text-white p-4 fixed top-16 left-0 h-[calc(100vh-4rem)] overflow-y-auto shadow-md z-40 hidden md:flex flex-col justify-between">
+                <div>
+                    <h2 className="text-xl font-semibold mb-4">Table of Contents</h2>
+                    <nav aria-label="Table of contents">
+                        <ol className="list-decimal list-outside space-y-2 text-base text-left font-semibold ml-5">
+                            <li><a href="#Overview" className="!text-white hover:underline">Overview</a></li>
+                            <li><a href="#Setup" className="!text-white hover:underline">Hardware Setup & System Architecture</a></li>
+                            <li><a href="#Stockfish" className="!text-white hover:underline">GUI & Stockfish ROS 2 Node</a></li>
+                            <li><a href="#Control" className="!text-white hover:underline">UR3e Robot Control Node</a></li>
+                            <li><a href="#Vision" className="!text-white hover:underline">Computer Vision for Player Move Detection</a></li>
+                            <li><a href="#Discussion" className="!text-white hover:underline">Discussion & Potential Improvements</a></li>
+                        </ol>
+                    </nav>
+                </div>
 
                 <img 
                     src="/chessImg/Logo v2.png" 
                     alt="Table of Contents Footer Image" 
-                    className="w-full mt-45 object-cover rounded"
+                    className="w-full object-cover rounded mt-4"
                 />
             </aside>
 
@@ -83,7 +89,7 @@ export default function Chess() {
                     <section id='Overview' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                         <div className="text-left">
                             <h2 className="text-4xl font-semibold mb-6">1. Overview</h2>
-                            <p className="text-xl text-white leading-relaxed">
+                            <div className="text-xl text-white leading-relaxed">
                                 The chess playing system was built by my team of 4 for the Robotic Studio 2 subject at UTS. 
                                 It used the UR3e robot arm, computer vision, chess AI, and a GUI powered by the Raspberry Pi 5, 
                                 with the goal of creating a unique chess experience. The final product includes selectable difficulty, 
@@ -95,7 +101,7 @@ export default function Chess() {
                                 improve my skills in ROS 2, ArUco marker localisation, and transfer learning for image classification.
                                 <br/> <br/> 
                                 Check out the full test video on <ExternalLink href="https://www.youtube.com/watch?v=lQcVdSzdOmk&t=309s">YouTube</ExternalLink>.
-                            </p>
+                            </div>
                         </div>
                         <figure className="mt-4">
                             <img 
@@ -115,7 +121,7 @@ export default function Chess() {
                         <h2 className="text-4xl font-semibold mb-6 text-left w-full">2. Hardware Setup & System Architecture</h2>
                         <div className="flex flex-col md:flex-row items-center md:items-start gap-12 w-full">
                             <div className="flex-1 text-left">
-                                <p className="text-xl text-white leading-relaxed">
+                                <div className="text-xl text-white leading-relaxed">
                                     The following components are required to use Chess Bot: <br/><br/>
                                     <ul className="list-disc list-outside text-white text-lg leading-relaxed">
                                         <li>Universal Robots UR3e</li>
@@ -131,7 +137,7 @@ export default function Chess() {
                                         <li>Ethernet to USB-C adapter (if the control computer have no ethernet port)</li>
                                         <li>And a great strategy because Stockfish will not go easy on you !!</li>
                                     </ul>
-                                </p>
+                                </div>
                             </div>
                             <div className="flex-shrink-0">
                                 <img 
@@ -165,7 +171,7 @@ export default function Chess() {
                     <section id='Stockfish' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                         <div className="text-left w-full">
                             <h2 className="text-4xl font-semibold mb-6">3. GUI & Stockfish ROS 2 Node</h2>
-                            <p className="text-xl text-white leading-relaxed">
+                            <div className="text-xl text-white leading-relaxed">
                                 The graphical user interface (GUI) is developed using C++ and SFML, featuring standard chess piece designs and 
                                 user-friendly gameplay assistance tools, such as legal move indicators. This GUI is then integrated into the 
                                 Stockfish ROS node, which detects player moves via mouse input and transmits the move data to 
@@ -186,7 +192,7 @@ export default function Chess() {
                                 in the FEN string, which did not accurately reflect the current game state. Correcting this swiftly resolved the 
                                 crashing issue. You can view the code for this node 
                                 <ExternalLink href="https://github.com/Cameron-j1/RS2/blob/charles_dev/ros2_rs2_packages/ur3_test_control/src/chessboard.cpp">here</ExternalLink>.
-                            </p>
+                            </div>
                         </div>
                     </section>
 
@@ -202,9 +208,10 @@ export default function Chess() {
                                 such as “e5”, to real-world coordinates relative to the base of the robot. After that,
                                 the robot will execute different motion plans to pick and place pieces depending on
                                 whether the requested move is a normal or capture move. <br/>
-                            </p>
+                            </p> <br/>
+                            
                             <h3 className="text-xl font-semibold mb-6">4.1. Control System Design</h3>
-                            <p className="text-xl text-white leading-relaxed">
+                            <div className="text-xl text-white leading-relaxed">
                                 Due to the nature of the project, most of the motions will use straight-line
                                 trajectories, which can be easily computed by using Moveit’s built-in function: <br/>
                                 <CodeBlock code={computeCartesianPath}/>
@@ -234,9 +241,9 @@ export default function Chess() {
                                 <CodeBlock code={jointAngle}/>
                                 To execute these trajectories (Cartesian and joint control), we will first plan them, then execute as follows: <br/>
                                 <CodeBlock code={CartesianAndJointAngleMove}/>
-                            </p>
+                            </div>
                             <h3 className="text-xl font-semibold mb-6">4.2. Adapting to Varying Piece Heights.</h3>
-                            <p className="text-xl text-white leading-relaxed">
+                            <div className="text-xl text-white leading-relaxed">
                                 As every piece has a different height, with the pawn being the shortest and the king
                                 being the tallest, we need to create a lookup table using 
                                 <code className="text-orange-300 bg-gray-800 px-1 rounded">std::unordered_map</code> to
@@ -248,9 +255,9 @@ export default function Chess() {
                                 <CodeBlock code={moveRequest}/>
                                 With the piece information included (‘q’ and ‘N’ in this case), we can use the lookup table to set
                                 the pick and place height accordingly.
-                            </p>
+                            </div>
                             <h3 className="text-xl font-semibold mb-6">4.3. Converting chess coordinates to world coordinates.</h3>
-                            <p className="text-xl text-white leading-relaxed">
+                            <div className="text-xl text-white leading-relaxed">
 
                                 After receiving the move request from the Stockfish node, we will need to
                                 convert the chess coordinate to 2 x-y pairs that reflect the distance of the
@@ -299,7 +306,7 @@ export default function Chess() {
                                 <code className="text-orange-300 bg-gray-800 px-1 rounded">yaw</code> is the detected yaw of the 
                                 chessboard in radians. Roll and pitch are not included, as we will not apply any tilt to the 
                                 chessboard during the game.
-                            </p>
+                            </div>
                         </div>
                     </section>
 
@@ -308,7 +315,7 @@ export default function Chess() {
                     <section id='Vision' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                         <div className="text-left w-full">
                             <h2 className="text-4xl font-semibold mb-6">5. Computer Vision for Player Move Detection</h2>
-                            <p className="text-xl text-white leading-relaxed">
+                            <div className="text-xl text-white leading-relaxed">
                                 In order for the robotic system to autonomously play chess reliably, it required the
                                 capability to detect legal moves made on the physical board by the human player. To
                                 achieve this, we will individually process the image of each cell of the chessboard to
@@ -465,7 +472,7 @@ export default function Chess() {
                                         <source src='/chessImg/workingCV.mp4' type='video/mp4'/>
                                         Your browser does not support MP4 unfortunately
                                 </video>
-                            </p>
+                            </div>
                         </div>
                     </section>
 
@@ -474,7 +481,7 @@ export default function Chess() {
                     <section id='Discussion' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                         <div className="text-left w-full">
                             <h2 className="text-4xl font-semibold mb-6">6. Discussion & Potential Improvements</h2>
-                            <p className="text-xl text-white leading-relaxed">
+                            <div className="text-xl text-white leading-relaxed">
                                 It has been a great opportunity for me to work on the incredible UR3e provided to us by the UTS Mechatronic Lab.
                                 I would also like to thank my team: Cameron, Charles and Fergus for putting in efforts to finish & polish their 
                                 subsystems for the chess playing robot! Their commitment has been instrumental in the project's success.
@@ -488,7 +495,7 @@ export default function Chess() {
                                 make the system play 3-player or 4-player chess, however it will not be as competitive as traditional chess due to
                                 the lack of a good game engine for those variants. A <ExternalLink href="https://www.youtube.com/watch?v=CSOnnle3zbA"> 
                                 pawn-to-queen transformer</ExternalLink> would be visually satisfying, but how many humans can crown in a game against Stockfish?
-                            </p>
+                            </div>
                         </div>
                     </section>
                 </main> 
@@ -500,8 +507,7 @@ export default function Chess() {
                     className="w-full max-h-[500px] object-cover"
                     />
                 </footer>
-            </div>
-           
+            </div> 
         </div>
     );
 }

@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export default function GSV() {
+    useEffect(() => {
+            window.scrollTo(0, 0); // or: { top: 0, behavior: 'smooth' }
+          }, []);
     return (
         <div>
             {/* Nav Bar */}
