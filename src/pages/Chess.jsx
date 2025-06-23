@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import ExternalLink from '../components/ExternalLink';
-import CodeBlock from '../components/CodeBlock';
+import { CodeBlock, InlineCode } from '../components/CodeBlock';
 
 const computeCartesianPath = "move_group_ptr->computeCartesianPath(waypoints, eef_step, jump_threshold, trajectory);"
 const jointAngle = `std::vector<double> joint_positions = {0.0, -1.0, 1.0, 0.0, 1.5, 0.0}; 

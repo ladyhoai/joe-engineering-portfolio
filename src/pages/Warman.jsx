@@ -4,7 +4,7 @@ import 'katex/dist/katex.min.css';
 import { InlineMath, BlockMath } from 'react-katex';
 import Figure from '../components/Figure';
 import ExternalLink from '../components/ExternalLink';
-import CodeBlock from '../components/CodeBlock';
+import { CodeBlock, InlineCode } from '../components/CodeBlock';
 
 const mouseUpdate = ` void updateMouse() {
     if (!update) {
@@ -315,54 +315,52 @@ export default function Warman() {
                             <br/>
 
                             <details open className="mb-4">
-                                <summary className="text-orange-300 font-semibold mb-2">
-                                    void navigate(int goalX, int goalY, bool LM_ack)
+                                <summary className="text-white font-semibold mb-2">
+                                    <InlineCode code="void navigate(int goalX, int goalY, bool LM_ack)" language="cpp"/>
                                 </summary>
                                 <div className=" text-xl text-white leading-relaxed space-y-6 shadow-2xl ">
                                     <p className="mb-2">Moves the robot to a target coordinate with optional alignment.</p>
 
                                     <ul className="list-disc list-outside space-y-1">
                                     <li>
-                                        <span className="text-orange-300 font-medium">goalX</span> – Target x-coordinate in millimetres.
+                                        <InlineCode code="int goalX" language="cpp"/> – Target x-coordinate in millimetres.
                                     </li>
                                     <li>
-                                        <span className="text-orange-300 font-medium">goalY</span> – Target y-coordinate in millimetres.
+                                        <InlineCode code="int goalY" language="cpp"/> – Target y-coordinate in millimetres.
                                     </li>
                                     <li>
-                                        <span className="text-orange-300 font-medium">LM_ack</span> – If <code>true</code>, the robot performs alignment by slamming into the raised platform before proceeding to the target.
+                                        <InlineCode code="bool LM_ack" language="cpp"/> – If <code>true</code>, the robot performs alignment by slamming into the raised platform before proceeding to the target.
                                     </li>
                                     </ul>
 
                                     <p className="mt-4">
                                     The robot moves in a straight path by splitting the motion into two axis-aligned steps. For example, to reach 
-                                    <code className="text-orange-300 bg-gray-800 px-1 rounded mx-1">(30, 40)</code>, first call
-                                    <code className="text-orange-300 bg-gray-800 px-1 rounded mx-1">navigate(0, 40, false)</code>, 
-                                    then
-                                    <code className="text-orange-300 bg-gray-800 px-1 rounded mx-1">navigate(30, 40, true)</code>.
+                                    <InlineCode code=" (30, 40)" language="cpp"/>, first call 
+                                    <InlineCode code=" navigate(0, 40, false)" language="cpp"/> then <InlineCode code=" navigate(30, 40, true)" language="cpp"/>. 
                                     Calling this function will send the goal to the Nano to start position tracking.
                                     </p>
                                 </div>
                             </details> <br/>
 
                             <details open className="mb-4">
-                                <summary className="text-orange-300 font-semibold mb-2">
-                                    void pickUpBall(int goingDown, int close, float operatingAngle, int speed)
+                                <summary className="text-white font-semibold mb-2">
+                                    <InlineCode code="void pickUpBall(int goingDown, int close, float operatingAngle, int speed)" language="cpp" />
                                 </summary>
                                 <div className=" text-xl text-white leading-relaxed space-y-6 shadow-2xl ">
                                     <p className="mb-2">Control the brush mechanism to pick up a tennis ball.</p>
 
                                     <ul className="list-disc list-outside space-y-1">
                                     <li>
-                                        <span className="text-orange-300 font-medium">goingDown</span> – The number of steps for the brush to go down. In Figure 5.5, the stepper will move 5760 steps downward.
+                                        <InlineCode code="int goingDown" language="cpp"/> – The number of steps for the brush to go down. In Figure 5.5, the stepper will move 5760 steps downward.
                                     </li>
                                     <li>
-                                        <span className="text-orange-300 font-medium">close</span> – When to start closing the brushes. In Figure 5.5, after the stepper has completed 19500 steps, the brush will start closing.
+                                        <InlineCode code="int close" language="cpp"/> – When to start closing the brushes. In Figure 5.5, after the stepper has completed 19500 steps, the brush will start closing.
                                     </li>
                                     <li>
-                                        <span className="text-orange-300 font-medium">operatingAngle</span> – How far to open the brushes.
+                                        <InlineCode code="float operatingAngle" language="cpp"/> – How far to open the brushes.
                                     </li>
                                     <li>
-                                        <span className="text-orange-300 font-medium">speed</span> – Set the operating speed for the servo.
+                                        <InlineCode code="int speed" language="cpp"/> – Set the operating speed for the servo.
                                     </li>
                                     </ul>
 
