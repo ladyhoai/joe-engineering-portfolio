@@ -58,7 +58,7 @@ export default function Warman() {
                 </div>
 
                 <img 
-                    src="/warman/Catbot.jpg" 
+                    src="/warman/Catbot.png" 
                     alt="Table of Contents Footer Image" 
                     className="w-full object-cover rounded mt-4"
                 />
