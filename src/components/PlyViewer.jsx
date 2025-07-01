@@ -103,10 +103,14 @@ function PlyModel({ url }) {
       const center = box.getCenter(new THREE.Vector3());
       const size = box.getSize(new THREE.Vector3());
       const maxDim = Math.max(size.x, size.y, size.z);
-      const scale = 2 / maxDim; // Normalize to fit in view
-      ref.current.position.sub(center.multiplyScalar(scale));
+      const scale = 2 / maxDim;
+  
+      // Move geometry so its centroid is at the origin
+      geometry.translate(-center.x, -center.y, -center.z);
+  
+      // Then apply uniform scale
       ref.current.scale.set(scale, scale, scale);
-    }
+          }
   }, [geometry]);
 
   // Dispose geometry on unmount
