@@ -135,7 +135,7 @@ export default function FIAR() {
                         <h2 className="text-4xl font-semibold mb-6">1. Overview</h2>
                         <div className="text-xl text-white leading-relaxed">
                             This MATLAB simulation demonstrates two robotic arms, UR3E and CRX10IA, collaborating to play a game 
-                            of Four in a Row. The robots are programmed to alternate turns, marking X's and O's on a virtual 8x8 board. 
+                            of Four in a Row. The robots are programmed to alternate turns, marking Xs and Os on a virtual 8x8 board. 
                             The simulation demonstrates robotic arm motion, pick-and-place operations, and basic game logic for Four in a Row. 
                             The robot arms can support each other to reach the play squares that are not within the other's reach. <br/> <br/>
 
@@ -147,7 +147,7 @@ export default function FIAR() {
                                 <li>Game Logic: Implements Tic-Tac-Toe rules (4-in-a-row), checking for valid moves and determining the winner. </li>
                                 <li>Motion: Each robot arm follows smooth trajectories generated using quintic polynomial and RMRC to pick and place
                                 game pieces at designated board locations.</li>
-                                <li>GUI game board: The player place 'O' by left-clicking, and the AI's response 'X' is visualised accordingly</li>
+                                <li>GUI game board: The player places 'O' by left-clicking, and the AI's response 'X' is visualised accordingly</li>
                                 <li>Control panel: Allow the user to E-Stop the program, and can move the robot around manually.</li>
                             </ul>
 
@@ -286,7 +286,7 @@ export default function FIAR() {
                         <h3 className="text-xl font-semibold mb-6">3.1. Types of Trajectory</h3>
                         <div className="text-xl text-white leading-relaxed">
                             There are 2 techniques used to move the robot from one pose to another: Joint Space Interpolation and Resolved-Rate Motion Control (RRMC).
-                            For the first technique, Robotics Toolbox provided the function <InlineCode code="jtraj(q0, qf, m)" language="matlab"/>, which used
+                            For the first technique, Robotics Toolbox provides the function <InlineCode code="jtraj(q0, qf, m)" language="matlab"/>, which uses
                             a quintic polynomial for velocity and acceleration, to move from current joint positions <InlineCode code="q0" language="matlab"/> to
                             target <InlineCode code="qf" language="matlab"/> in <InlineCode code="m" language="matlab"/> time steps. This maneuver is useful if the orientation
                             of the end-effector changed between the initial and target pose (not a straight-line trajectory).
@@ -302,9 +302,9 @@ export default function FIAR() {
                         <h3 className="text-xl font-semibold mb-6">3.2. Pick and Place</h3>
                         <div className="text-xl text-white leading-relaxed">
                             Each play will require the robot to reach 8 different goals to move the piece from the piece stack to the desired location. Also, given the piece destination
-                            as a pair of (row, col) on the digital game grid, it could be translated to the real-world coordinate by: 
+                            as a pair of (row, col) on the digital game grid, it can be translated to the real-world coordinate by: 
                             <CodeBlock code={translation}/>
-                            where <InlineCode code="0.1" language="matlab"/> is the center-to-center distance between adjacent cells. After calculating the goal, it could start the 
+                            where <InlineCode code="0.1" language="matlab"/> is the center-to-center distance between adjacent cells. After calculating the goal, it can start the 
                             pick-and-place sequence. This sequence is the same for both CRX10IA and UR3e.
                             <Figure src="/4inarow/pnp.gif" alt="setup" caption="Figure 3.3. Pick and place sequence"/> <br/>
                         </div>
@@ -341,8 +341,8 @@ export default function FIAR() {
                         <h3 className="text-xl font-semibold mb-6">4.1. Control Panel</h3>
                         <div className="text-xl text-white leading-relaxed">
                             We also provide an easy-to-use control panel for manually moving the robot whether by changing individual joint or moving the end-effector in Cartesian 
-                            space. For the later, we implement a joy-stick for planar control and the green up-down button for moving respectively in Z. For joint control, 
-                            simple use the sliders or 2 arrows beside it to adjust the angle for individual joint. The panel also provides an E_STOP (big button in red) to immediately halt the system, 
+                            space. For the later, we implement a joystick for planar control and the green up-down button for moving respectively in Z. For joint control, 
+                            simply use the sliders or 2 arrows beside it to adjust the angle for individual joint. The panel also provides an E_STOP (big button in red) to immediately halt the system, 
                             and it allows for resuming from the stopped state. 
                             <Figure src="/4inarow/panel.png" alt="setup" caption="Figure 4.1. Control Panel (left for CRX, right for UR3e)"/> <br/>
                             Note that it is the best practice for the system to be E-STOPPED before attempting the manual control 
@@ -365,7 +365,7 @@ export default function FIAR() {
                         </div> <br/>
                         <h3 className="text-xl font-semibold mb-6">4.2. Board GUI</h3>
                         <div className="text-xl text-white leading-relaxed">
-                            For the human player to easily make their moves, instead of typing the move coordinate on the terminal, which is both error-prone and time-consuming, we made a digital
+                            For the human player to easily make their moves, instead of typing the move coordinate on the terminal, which is both error-prone and time-consuming, we have a digital
                             8x8 board where they can click to place 'O'. The program will highlight the square that the player's mouse is hovering on as well. To prevent cheating by placing multiple 
                             'O' at a time, we will disable all mouse callbacks for this GUI during Minimax's execution. 
                             <Figure src="/4inarow/GUI.gif" alt="setup" caption="Figure 4.4. The 8x8 board GUI"/>
@@ -465,7 +465,7 @@ export default function FIAR() {
                         <h2 className="text-4xl font-semibold mb-6">7. Discussion & Potential Improvements</h2>
                         <div className="text-xl text-white leading-relaxed">
                             This is my first MATLAB project with a good amount of complexity and debugging, which definitely is a big boost to my skills with the tool.
-                            It helps me realise the power of MATLAB and its extensive support for developing control system and robotics application. This project ended up
+                            It helps me realise the power of MATLAB and its extensive support for developing control system and robotics application. This project ends up
                             getting me a High Distinction for a 3rd-year university subject, after spending 12 weeks working part-time on it. <br/> <br/>
 
                             However, the system has some functional drawbacks to be improved. First, the fully integrated simulation with control panel, environment and collision 

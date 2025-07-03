@@ -90,7 +90,7 @@ export default function Chess() {
                         <div className="text-left">
                             <h2 className="text-4xl font-semibold mb-6">1. Overview</h2>
                             <div className="text-xl text-white leading-relaxed">
-                                The chess playing system was built by my team of 4 for the Robotic Studio 2 subject at UTS. 
+                                The chess-playing system was built by my team of 4 for the Robotic Studio 2 subject at UTS. 
                                 It used the UR3e robot arm, computer vision, chess AI, and a GUI powered by the Raspberry Pi 5, 
                                 with the goal of creating a unique chess experience. The final product includes selectable difficulty, 
                                 a Gazebo simulation environment, autonomous localisation of the chessboard, 
@@ -202,7 +202,7 @@ export default function Chess() {
                         <div className="text-left w-full">
                             <h2 className="text-4xl font-semibold mb-6">4. UR3e Robot Control Node</h2>
                             <p className="text-xl text-white leading-relaxed">
-                                My task was to develop a simple controller (UR3e control node) to
+                                My task is to develop a simple controller (UR3e control node) to
                                 execute the piece move request sent from the Stockfish node (Figure 3.3). To
                                 achieve this, first, we have to convert the piece position from the chess coordinates,
                                 such as “e5”, to real-world coordinates relative to the base of the robot. After that,
@@ -212,12 +212,12 @@ export default function Chess() {
                             
                             <h3 className="text-xl font-semibold mb-6">4.1. Control System Design</h3>
                             <div className="text-xl text-white leading-relaxed">
-                                Due to the nature of the project, most of the motions will use straight-line
+                                Due to the nature of the project, most of the motions use straight-line
                                 trajectories, which can be easily computed by using Moveit’s built-in function: <br/>
                                 <CodeBlock code={computeCartesianPath}/>
-                                We will have to account for 2 types of moves: capture and normal.
+                                We have to account for 2 types of moves: capture and normal.
                                 For a normal move, there are 8 goals to execute, and 12 goals for capturing. These
-                                goals will be reached in the sequence as shown below.
+                                goals are reached in the sequence as shown below.
                                 <div className="flex flex-col md:flex-row gap-6 justify-center items-start mt-6">
                                     <figure className="flex flex-col items-center md:w-1/2">
                                         <img src="/chessImg/normalMove.gif" alt="Normal Move" className="w-full rounded shadow-md"/>
@@ -234,7 +234,7 @@ export default function Chess() {
                                 </div> <br/>
                                 There are situations where a Cartesian trajectory is not suitable, such as when
                                 the end-effector has to move up high (Figure 4.2) for the camera to have a wide view of the workspace, 
-                                as the end-effector now has some negative pitch. Therefore, we used joint control to reach this pose, 
+                                as the end-effector now has some negative pitch. Therefore, we use joint control to reach this pose, 
                                 and the joint values of this pose are found by free-driving the robot to it and reading the angles
                                 from the teach pendant. Moveit conveniently also provides a simple function for moving the robot using 
                                 joint values: <br/> 
@@ -251,7 +251,7 @@ export default function Chess() {
                                 <CodeBlock code={lookupTable}/>
                                 The information about the type of move and what piece was played is also included
                                 in the move request sent from the Stockfish node to the UR3e control node. A
-                                complete move request message would look similar to this:
+                                complete move request message will look similar to this:
                                 <CodeBlock code={moveRequest}/>
                                 With the piece information included (‘q’ and ‘N’ in this case), we can use the lookup table to set
                                 the pick and place height accordingly.
@@ -277,7 +277,7 @@ export default function Chess() {
                                 According to Figure 2.2, we already have the chessboard localisation node
                                 constantly sending the chessboard position to our UR3e control node. More
                                 specifically, the localisation node will update both the position and orientation of
-                                4 corners of the board at a high rate. Then, we could calculate the position of H1 based 
+                                4 corners of the board at a high rate. Then, we can calculate the position of H1 based 
                                 on the position of any corner, since H1 is always at a fixed distance from the selected corner. 
                                 From this H1 location, we can apply basic transform math to calculate the location of any other 
                                 squares on the chessboard. The accuracy of this operation depends heavily on the localisation quality of H1.
@@ -316,7 +316,7 @@ export default function Chess() {
                         <div className="text-left w-full">
                             <h2 className="text-4xl font-semibold mb-6">5. Computer Vision for Player Move Detection</h2>
                             <div className="text-xl text-white leading-relaxed">
-                                In order for the robotic system to autonomously play chess reliably, it required the
+                                In order for the robotic system to autonomously play chess reliably, it requires the
                                 capability to detect legal moves made on the physical board by the human player. To
                                 achieve this, we will individually process the image of each cell of the chessboard to
                                 detect the presence of a red dot. After this, we will get an 8x8 occupancy matrix, and
@@ -362,7 +362,7 @@ export default function Chess() {
                                 <p className='text-white font-semibold'>Iteration 2: </p>
                                 As the method listed above has low reliability, we tried to move the
                                 camera to a fixed position above the chessboard, and OpenCV image processing
-                                would carry out dot detection. This position is calculated relative to the detected
+                                would carry out dot detection. This position was calculated relative to the detected
                                 locations of Aruco tags on the chessboard.
 
                                 <figure className="mt-4">
@@ -375,7 +375,7 @@ export default function Chess() {
                                 This method provided substantially better chessboard images with acceptable
                                 imperfections. However, we discovered that our OpenCV approach
                                 (using colour thresholding, morphological operations with a circular kernel and
-                                contour detection) to dot detection produced poor results regarding accuracy It struggled 
+                                contour detection) to dot detection produced poor results regarding accuracy. It struggled 
                                 to stabilise the occupancy matrix with many values alternating
                                 between false positives and false negatives. We suspected that different lightning
                                 conditions and an undertuned colour range had a large impact on overall accuracy.
@@ -390,10 +390,10 @@ export default function Chess() {
                                 </figure> <br/>
                                 
                                 <p className='text-white font-semibold'>Iteration 3 (Worked!): </p>
-                                As the chessboard isolation is confirmed to be working, we will
+                                As the chessboard isolation was confirmed to be working, we would
                                 review our approach to red dot detection. This time, we trained a single-label image
                                 classifier on Roboflow to account for varying environmental conditions. This
-                                approach is also easily scalable, as extending the training dataset is much less
+                                approach was also easily scalable, as extending the training dataset was much less
                                 time-consuming compared to experimentally adjusting OpenCV function parameters.
                                 We have taken approximately 1500 cell images of occupied and empty cells to
                                 create a big enough dataset, manually labelled them and performed transfer learning
@@ -408,19 +408,19 @@ export default function Chess() {
                                     </figcaption>
                                 </figure> <br/>
 
-                                The detection output is considerably improved from the previous attempt, 
+                                The detection output was considerably improved from the previous attempt, 
                                 as false detections were very rarely observed in the resulting occupancy
                                 grid. The false values likely happened due to a few images
                                 being too off-centre, as sometimes the chessboard localisation was off tolerance.
-                                Overall, the system is robust against noisy cell images, with confidence
+                                Overall, the system was robust against noisy cell images, with confidence
                                 that did not drop below 0.71. 
                                 <br/><br/>
 
                                 <h3 className="text-xl font-semibold mb-6">5.2. Player Move Inference Logic</h3>
-                                Subsequent to obtaining the occupancy grid, we can use that information to find the
-                                most recent physical move on the board by the human opponent. Essentially, we will
+                                Subsequent to obtaining the occupancy grid, we could use that information to find the
+                                most recent physical move on the board by the human opponent. Essentially, we would
                                 compare this grid to the previous board state to detect the changes in the dot
-                                pattern. A preoccupied cell becomes empty, e.g. H8, will indicate that the piece
+                                pattern. A preoccupied cell becomes empty, e.g. H8, would indicate that the piece
                                 previously at H8 was moved elsewhere.
 
                                 <figure className="mt-4">
@@ -432,8 +432,8 @@ export default function Chess() {
                                     </figcaption>
                                 </figure> <br/>
 
-                                To find the location where the piece was moved to, we will first identify all legal
-                                moves of the selected piece, then find a single legal cell that contains a black piece.
+                                To find the location where the piece was moved to, we would first identify all legal
+                                moves of the selected piece, then found a single legal cell that contained a black piece.
                                 That cell would be the destination of the piece. Note that under no circumstances
                                 would we see more than 1 cell with black pieces in the list of legal moves of any
                                 piece, as that would imply the possibility of capturing a same-colour piece, which is
@@ -448,7 +448,7 @@ export default function Chess() {
                                 </figure> <br/>
 
                                 Differentiating between black and white pieces required us to train a second
-                                classifier. As this task is simpler than detecting a red dot due to the great contrasting
+                                classifier. As this task was more simple than detecting a red dot due to the great contrasting
                                 colour and the big contour of the piece, we reduced the size of the training dataset
                                 by about 50%, with 700 images.
 
@@ -461,9 +461,9 @@ export default function Chess() {
                                 </figure> <br/>
 
                                 For detecting special moves such as castling and en passant, we implemented a heuristic
-                                check to reduce logic complexity. En passant will make 3 changes in the dot pattern,
-                                whereas in castling, the rook and the king move in a very specific way, so that we
-                                only need to check a certain 4 cells to identify this move.
+                                check to reduce logic complexity. En passant would make 3 changes in the dot pattern,
+                                whereas in castling, the rook and the king moved in a very specific way, so that we
+                                only needed to check a certain 4 cells to identify this move.
 
                                 That's all we need for the move detection system to work! Here's a short video showing it correctly
                                 detecting a white pawn move forward 2 squares. <br/> <br/>
@@ -484,17 +484,17 @@ export default function Chess() {
                             <div className="text-xl text-white leading-relaxed">
                                 It has been a great opportunity for me to work on the incredible UR3e provided to us by the UTS Mechatronic Lab.
                                 I would also like to thank my team: Cameron, Charles and Fergus for putting in efforts to finish & polish their 
-                                subsystems for the chess playing robot! Their commitment has been instrumental in the project's success.
+                                subsystems for the chess-playing robot! Their commitment has been instrumental in the project's success.
                                 This project has greatly improved my expertise with ROS 2 & machine learning as a tool
-                                for robotic development, and from this point on, I am also more confidence to use ROS for simulating harder 
-                                kinematic systems, such as bipedal or quadrupled robot, for even more exciting projects!
+                                for robotic development, and from this point on, I am also more confident in using ROS to simulate harder 
+                                kinematic systems, such as bipedal or quadrupled robots, for even more exciting projects!
                                 <br/><br/>
                                 An exciting upgrade in the future would be a funny AI commentator for the live chess game using 
                                 LLMs & Text-to-Speech (TTS) technology. We can train a TTS model with transfer learning using the voice data of
                                 our friends, and I believe that would make the gameplay experience even more hilarious. Furthermore, we could also
-                                make the system play 3-player or 4-player chess, however it will not be as competitive as traditional chess due to
+                                make the system play 3-player or 4-player chess, however, it will not be as competitive as traditional chess due to
                                 the lack of a good game engine for those variants. A <ExternalLink href="https://www.youtube.com/watch?v=CSOnnle3zbA"> 
-                                pawn-to-queen transformer</ExternalLink> would be visually satisfying, but how many humans can crown in a game against Stockfish?
+                                pawn-to-queen transformer</ExternalLink> will be visually satisfying, but how many humans can crown in a game against Stockfish?
                             </div>
                         </div>
                     </section>

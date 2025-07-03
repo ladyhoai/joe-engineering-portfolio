@@ -95,7 +95,7 @@ export default function Warman() {
                         <div className="text-xl text-white leading-relaxed">
                             The Warman Challenge is a competition held yearly by Weir Minerals Australia
                             Ltd. The participants (mostly second-year engineering students) will have to
-                            find practical solutions to theoretical problems. For the 2024 challenge, we are
+                            find practical solutions to theoretical problems. For the 2024 challenge, we were
                             tasked with designing and building a robot to collect 6 balls located at
                             different positions and heights. After that, the collected balls will be deposited
                             into a hole on the track within 120 seconds. The final design must adhere
@@ -104,8 +104,8 @@ export default function Warman() {
                             <Figure src="/warman/track.png" alt="setup" caption="Figure 1.1. Warman 2024 track"/> <br/> 
 
                             We have remodelled the track in Solidwork for robot's simulation purpose, also it made scaling the size
-                            of components more easy. There is a tree (tall pole) and 2 tennis balls (seed pods) being placed on each 
-                            side of the track.  In the middle, a hole (the incinerator) is made for the robot to drop the payload into.
+                            of components more easy. There was a tree (tall pole) and 2 tennis balls (seed pods) being placed on each 
+                            side of the track.  In the middle, a hole (the incinerator) was made for the robot to drop the payload into.
                             Check out the interactive track below!
 
                             <PlyViewer url='/warman/track.ply'fov={15}/>
@@ -133,7 +133,7 @@ export default function Warman() {
                             with the ball was not ideal, providing high tolerance against positional errors. For localisation, the flatness of the Warman track provided an excellent working 
                             surface for an optical mouse, which gave precise x and y offsets of the robot by accumulating the small offsets over time. For navigation, the holonomic 
                             drive configuration (4 NEMA17s & 4 omni-directional wheels) was implemented, which allowed the robot to move horizontally 
-                            without having to turn its chassis. A 3d-printed, lightweight electronics housing is mounted on the ball catcher to
+                            without having to turn its chassis. A 3d-printed, lightweight electronics housing was mounted on the ball catcher to
                             keep the cables neat, minimising the risk of unwanted disconnection.
 
                             <Figure src="/warman/Final.png" alt="setup" caption="Figure 2.1. Final robot design"/> <br/> 
@@ -146,7 +146,7 @@ export default function Warman() {
                         <h2 className="text-4xl font-semibold mb-6">3. Ball Catcher</h2>
                         <div className="text-xl text-white leading-relaxed">
                             To store the balls after being collected, we decided to use a funnel-like design so that the balls could be 
-                            effortlessly released when needed. Also, it can interface with the pick-up mechanism with no moving parts. 
+                            effortlessly released when needed. Also, it could interface with the pick-up mechanism with no moving parts. 
 
                             <Figure src="/warman/catcher.png" alt="setup" caption="Figure 3.1. The catcher used in demonstration"/> <br/> 
 
@@ -161,7 +161,7 @@ export default function Warman() {
 
                             During the prototyping stage, we made a cardboard version of our robot to have a rough idea about the scale 
                             of each mechanical components when put together. It helped us realise the ball-congestion issue in the early catcher design,
-                            as the catcher is too narrow to store all 6 balls. Comparing the final version to the early one, you can notice 
+                            as the catcher was too narrow to store all 6 balls. Comparing the final version to the early one, you can notice 
                             the end point has been widened considerably.
 
                             <Figure src="/warman/earlyCatcher.png" alt="setup" caption="Figure 3.3. Early catcher design"/> 
@@ -191,7 +191,7 @@ export default function Warman() {
                         <div className="flex flex-col md:flex-row items-center md:items-start gap-12 w-full">
                             <div className="flex-1 text-left">
                                 <p className="text-xl text-white leading-relaxed">
-                                    To drive all 4 stepper motors (NEMA 17), we use the DRV8825 stepper driver, which is rated for 1.5A per coil 
+                                    To drive all 4 stepper motors (NEMA 17), we used the DRV8825 stepper driver, which is rated for 1.5A per coil 
                                     without using any cooling method, and up to 2.2A with sufficient cooling. The breakout board provides a 
                                     potentiometer that could be used to adjust the current limit to match the application’s needs.  
                                 </p>
@@ -214,13 +214,13 @@ export default function Warman() {
                             quieter operation and more precise control due to the finer resolution of each step, allowing the motor to 
                             make smaller rotational changes. <br/> <br/>
                             <h3 className="text-xl font-semibold mb-6">4.2. Dead-Reckoning</h3>
-                            We will use dead-reckoning to perform the <InlineMath math='180^\circ'/> rotation as can be seen at the 0:55 mark
+                            We used dead-reckoning to perform the <InlineMath math='180^\circ'/> rotation as can be seen at the 0:55 mark
                             of our demonstration video above, as using a magnetometer to sense yaw requires precise calibration and shielding 
                             for it to function correctly, which is complicated and time-consuming. <br/><br/>
 
                             <div className="flex flex-col md:flex-row items-center md:items-start gap-12 w-full">
                                 <div className="flex-1 text-left">
-                                    To turn an angle <InlineMath math='\alpha'/>, first we will find the number of wheel revolutions needed:
+                                    To turn an angle <InlineMath math='\alpha'/>, first we find the number of wheel revolutions needed:
                                     <BlockMath math='numRev = \frac{\pi d \frac{\alpha}{360}}{2\pi r_{wheel}}'/>
                                     The numerator is the arc length that the wheel has to travel to achieve <InlineMath math='\alpha'/> degree of rotation. 
 
@@ -247,10 +247,10 @@ export default function Warman() {
                         <h2 className="text-4xl font-semibold mb-6">5. Navigation Software Development</h2>
                         <h3 className="text-xl font-semibold mb-6">5.1. Mission Sequence & State Diagram</h3>
                         <div className="text-xl text-white leading-relaxed">
-                            According to the Warman 2024 rules, it is allowed to position the robot anywhere on the track. Therefore, we choose 
+                            According to the Warman 2024 rules, it was allowed to position the robot anywhere on the track. Therefore, we chose 
                             the top left corner as the starting point with the robot facing the tennis ball, and sequentially reached 7 other goals (Figure 5.1). 
                             <Figure src="/warman/ballSeq.png" alt="setup" caption="Figure 5.1. Pick-up sequence" /> <br/> 
-                            The robot will execute the mission according to this state diagram:   
+                            The robot executed the mission according to this state diagram:   
                             <Figure src="/warman/stateMachine.png" alt="setup" caption="Figure 5.2. State diagram for the Warman mission" width='w-180'/> <br/> 
                         </div>
                         <h3 className="text-xl font-semibold mb-6">5.2. Sensors & Computing Units</h3>
@@ -414,7 +414,9 @@ export default function Warman() {
                             accelerate task completion more to avoid any last-minute rush.  <br/><br/>
 
                             Our robot got nominated to attend Tech Fest 2024 during the Robotic Showcase! It is one of the big achievements to be
-                            proud of. 
+                            proud of. However, we only got second place in the UTS challenge and could not attend the international competition. Another
+                            team's robot run faster than us by 40 seconds! Speed is definitely improvable, as the robot can start moving right after the ball
+                            is picked up by the broom, not having to wait until it falls into the catcher. 
                         </div> <br/>
                     </div>
                 </section>
