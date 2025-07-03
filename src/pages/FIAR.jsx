@@ -369,7 +369,15 @@ export default function FIAR() {
                             For the human player to easily make their moves, instead of typing the move coordinate on the terminal, which is both error-prone and time-consuming, we have a digital
                             8x8 board where they can click to place 'O'. The program will highlight the square that the player's mouse is hovering on as well. To prevent cheating by placing multiple 
                             'O' at a time, we will disable all mouse callbacks for this GUI during Minimax's execution. 
-                            <Figure src="/4inarow/GUI.gif" alt="setup" caption="Figure 4.4. The 8x8 board GUI"/>
+                            <div className='flex justify-center'>
+                                <figure className="mt-4">
+                                    <video src="/4inarow/GUI.mp4" autoPlay loop muted playsInline className="w-140 rounded shadow-md"/>
+                                    <figcaption className="mt-2 text-white text-lg text-center italic">
+                                        Figure 4.4. The 8x8 board GUI
+                                    </figcaption>
+                                </figure>
+                            </div>
+
                         </div>
                     </div>
                 </section>

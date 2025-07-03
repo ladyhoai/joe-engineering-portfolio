@@ -71,7 +71,7 @@ export default function Sketch() {
                 </nav>
 
                 <div className="mt-20 p-8 space-y-8 flex flex-col items-center">
-                    <img src="/Sketch.png" alt="Profile" className="w-auto h-110 rounded-2xl shadow-lg"/>
+                    <img src="/Draw.jpg" alt="Profile" className="w-auto h-110 rounded-2xl shadow-lg"/>
                     <h1 className="text-4xl font-bold text-center !text-white">Selfie Sketcher</h1>
                 </div>
 
@@ -94,7 +94,7 @@ export default function Sketch() {
                              
                             And this is the system's first successful attempt drawing my good friend Julian on the left! My friends at work Fernando is also having his 
                             on the right.
-                            <Figure src="/sketch/julfern.png" alt="setup" width='w-200'/> 
+                            <Figure src="/sketch/julfern.jpg" alt="setup" width='w-200'/> 
                         </div>
                     </div>
                 </section>

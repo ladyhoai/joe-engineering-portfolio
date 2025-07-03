@@ -105,11 +105,7 @@ export default function Chess() {
                             </div>
                         </div>
                         <figure className="mt-4">
-                            <img 
-                                src="/chessImg/chessfast.gif"
-                                alt="setup"
-                                className="w-140 h-auto object-cover shadow-lg rounded-2xl mx-auto"
-                            />
+                            <video src="/chessImg/chessfast.mp4" autoPlay loop muted playsInline className="w-full rounded shadow-md"/>
                             <figcaption className="mt-2 text-white text-lg text-center italic">
                                 This is me playing chess against the system!
                             </figcaption>
@@ -221,13 +217,13 @@ export default function Chess() {
                                 goals are reached in the sequence as shown below.
                                 <div className="flex flex-col md:flex-row gap-6 justify-center items-start mt-6">
                                     <figure className="flex flex-col items-center md:w-1/2">
-                                        <img src="/chessImg/normalMove.gif" alt="Normal Move" className="w-full rounded shadow-md"/>
+                                    <video src="/chessImg/normalMove.mp4" autoPlay loop muted playsInline className="w-full rounded shadow-md"/>
                                         <figcaption className="mt-2 text-white text-lg text-center italic">
                                             Figure 4.1: Normal move 
                                         </figcaption>
                                     </figure>
                                     <figure className="flex flex-col items-center md:w-1/2">
-                                        <img src="/chessImg/captureMove.gif" alt="Capture Move" className="w-full rounded shadow-md"/>  
+                                    <video src="/chessImg/captureMove.mp4" autoPlay loop muted playsInline className="w-full rounded shadow-md"/>  
                                         <figcaption className="mt-2 text-white text-lg text-center italic">
                                             Figure 4.2: Capture move 
                                         </figcaption>
@@ -265,7 +261,7 @@ export default function Chess() {
                                 start and destination square to the robot’s base in millimetres (mm). 
                                 <figure className="mt-4">
                                     <img 
-                                        src="/chessImg/coord2real.png"
+                                        src="/chessImg/coord2real.jpg"
                                         alt="setup"
                                         className="w-170 h-auto object-cover shadow-lg mx-auto"
                                     />
@@ -494,7 +490,7 @@ export default function Chess() {
                                 LLMs & Text-to-Speech (TTS) technology. We can train a TTS model with transfer learning using the voice data of
                                 our friends, and I believe that would make the gameplay experience even more hilarious. Furthermore, we could also
                                 make the system play 3-player or 4-player chess, however, it will not be as competitive as traditional chess due to
-                                the lack of a good game engine for those variants. A <ExternalLink href="https://www.youtube.com/watch?v=CSOnnle3zbA"> 
+                                the lack of a good game engine for those variants. A<ExternalLink href="https://www.youtube.com/watch?v=CSOnnle3zbA"> 
                                 pawn-to-queen transformer</ExternalLink> will be visually satisfying, but how many humans can crown in a game against Stockfish?
                             </div>
                         </div>
@@ -503,7 +499,7 @@ export default function Chess() {
                 
                 <footer>
                     <img 
-                    src="/chessImg/groupPic.JPG" 
+                    src="/chessImg/grp.jpg" 
                     alt="Footer Image" 
                     className="w-full max-h-[500px] object-cover"
                     />

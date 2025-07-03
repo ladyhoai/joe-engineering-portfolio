@@ -79,7 +79,7 @@ export default function Warman() {
 
                 <div className="mt-20 p-8 space-y-8 flex flex-col items-center">
                         <img 
-                            src="/warman/coverPic.png"
+                            src="/warman/coverPic.jpg"
                             alt="Profile"
                             className="w-auto h-110 rounded-2xl shadow-lg"
                         />
@@ -158,14 +158,14 @@ export default function Warman() {
                             then different sections could be assembled using customized 3D printed linkers. Laser cutting is chosen 
                             as it is less time-consuming than 3d-printing, and more cost-effective compared to CNC. <br/> 
 
-                            <Figure src="/warman/mountedCatcher.png" alt="setup" caption="Figure 3.2. The catcher mounted onto chassis"/> <br/> 
+                            <Figure src="/warman/mountedCatcher.jpg" alt="setup" caption="Figure 3.2. The catcher mounted onto chassis"/> <br/> 
 
                             During the prototyping stage, we made a cardboard version of our robot to have a rough idea about the scale 
                             of each mechanical components when put together. It helped us realise the ball-congestion issue in the early catcher design,
                             as the catcher was too narrow to store all 6 balls. Comparing the final version to the early one, you can notice 
                             the end point has been widened considerably.
 
-                            <Figure src="/warman/earlyCatcher.png" alt="setup" caption="Figure 3.3. Early catcher design"/> 
+                            <Figure src="/warman/earlyCatcher.jpg" alt="setup" caption="Figure 3.3. Early catcher design"/> 
                             <br/>
                             As a lot of adjustments were made during the development of the catcher, I have come up with a series of equations
                             to parametrically model the catcher, allowing for quick updates if any dimensions need to be modified. We can 
@@ -255,7 +255,7 @@ export default function Warman() {
                             <Figure src="/warman/stateMachine.png" alt="setup" caption="Figure 5.2. State diagram for the Warman mission" width='w-180'/> <br/> 
                         </div>
                         <h3 className="text-xl font-semibold mb-6 !text-white">5.2. Sensors & Computing Units</h3>
-                        <Figure src="/warman/circuit.png" alt="setup" caption="Figure 5.3. Final electrical system" width='w-180'/> <br/> 
+                        <Figure src="/warman/circuit.jpg" alt="setup" caption="Figure 5.3. Final electrical system" width='w-180'/> <br/> 
                         <div className="text-xl text-white leading-relaxed">
                             There are 2 computing units on the robot - an Arduino Mega to drive the motor system consisting of 6 NEMA17s and 2 35kg servos, and 
                             an Arduino Nano to process sensor data (from the optical mouse and 2 limit switches) and keep track of the mission state. These limit

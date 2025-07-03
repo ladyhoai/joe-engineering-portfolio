@@ -54,13 +54,13 @@ export default function Home() {
             <div className="mt-20 p-8 space-y-8 flex flex-col items-center">
                 <div className="flex flex-row space-x-8 items-center">
                     <img 
-                        src="/content.png"
+                        src="/content.jpg"
                         alt="Profile"
                         className="w-120 h-auto"
                     />
 
                     <img 
-                        src="/demoShow.png"
+                        src="/demoShow.jpg"
                         alt="Profile"
                         className="w-120 h-64 object-cover object-center"
                     />
@@ -109,7 +109,7 @@ export default function Home() {
                         <div className="bg-gray-700 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition 
                                         cursor-pointer hover:ring hover:ring-blue-400 hover:ring-offset-2 group">
                             <img 
-                                src="/ChessImg.png"
+                                src="/ChessImg.jpg"
                                 alt="Chess"
                                 className="w-full h-48 object-cover rounded-lg mb-4"
                             />
@@ -126,7 +126,7 @@ export default function Home() {
                         <div className="bg-gray-700 rounded-2xl shadow-lg p-6 hover:shadow-2xl transition 
                                         cursor-pointer hover:ring hover:ring-blue-400 hover:ring-offset-2 group">
                             <img 
-                                src="/Sketch.png"
+                                src="/Draw.jpg"
                                 alt="Draw"
                                 className="w-full h-48 object-cover rounded-lg mb-4"
                             />
