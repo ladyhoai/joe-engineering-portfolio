@@ -43,6 +43,15 @@ void loop() {
     delay(1000);
 }`
 
+const camServer = `cameraBack.on('connection', (cam_client, req) => {
+    console.log("camera back connected")
+    cam_client.on('message', (data) => {  
+        cameraBack.clients.forEach(function each(client) {
+            if (client !== cam_client && client.readyState === WebSocket.OPEN) {     
+                client.send(data) }})})})`
+
+const interview = `https://www.linkedin.com/posts/xuan-kien-nguyen-7002a0236_joseph-impressive-activity-7105547017644380160-MngX?utm_source=share&utm_medium=member_desktop&rcm=ACoAADrGZfABv6UcIJK7IVeL-7z7DkwvRfzLKMc`
+
 export default function GSV() {
     useEffect(() => {
             window.scrollTo(0, 0); // or: { top: 0, behavior: 'smooth' }
@@ -67,7 +76,7 @@ export default function GSV() {
                 </div>
 
                 <img 
-                    src="/4inarow/footer.png" 
+                    src="/car/carlogo.png" 
                     alt="Table of Contents Footer Image" 
                     className="w-full object-cover rounded mt-4"
                 />
@@ -318,6 +327,7 @@ export default function GSV() {
                         <div className="text-xl text-white leading-relaxed">
                             For everyone to be able to access the robot without requiring extensive setup, a web page and server is the most convenient way due to various useful
                             Javascript libraries that work across different browsers. To control, simply type the server's ip on the search bar and that's it, no app, no custom hardwares.
+                            View the code for this section on<ExternalLink href="https://github.com/ladyhoai/Server">Github</ExternalLink>.
                             <Figure src="/car/connect.gif" alt="setup" caption="Figure 6.1. Connecting to the control server"/> <br/>
                             Using this page, the user can move the robot using 'w' (straight), 'wa' (turn right), 's' (backward), 'wd' (turn left) on the keyboard.
                             For camera pan and tilt, 'cw' (tilt up), 'cs' (tilt down), 'ca' (pan left), 'cd' (pan right). Key 'i' and 'o' will move the camera platform up and down.
@@ -326,10 +336,41 @@ export default function GSV() {
                         </div>
                         <h3 className="text-xl font-semibold mb-6">6.2. The Server</h3>
                         <div className="text-xl text-white leading-relaxed">
-                            Node.js is used to create the server, whose purpose is to serve the index.html file to the user when they connect.  
+                            Node.js is used to create the server, whose purpose is to serve the index.html file to the user when they connect. It also establishes and maintains 
+                            the websocket connections for all connected clients. As an example, the callback below will listen to the camera feed of the back camera, and stream 
+                            the feed to all users (excluding the sender) currently on the webpage:
+                            <CodeBlock code={camServer} language='javascript'/>
+                            To host the server, you can either run it locally on your machine (just make sure you have good internet speed) or use Google Cloud's compute engine 
+                            to create a VM instance. 
                         </div>
                     </div>
                 </section>
+                <div className="my-18" />
+
+                <section id='Discussion' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
+                    <div className="text-left">
+                        <h2 className="text-4xl font-semibold mb-6">7. Discussion & Potential Improvements</h2>
+                        <div className="text-xl text-white leading-relaxed">
+                            The GSV was my first robotic project, also my first time designing a PCB and programming ESP32. Needless to say, this experience has built the 
+                            important knowledge foundation for a lot of more complicated projects in the future. The testing period was also fun as well! Here's an  
+                            <ExternalLink href={interview}>interview</ExternalLink> I got with Fatma - UTS director of project teams, on a random Thursday night during one test.
+                            <br/> <br/>
+                            If I revisit the project, the first change would be to improve the structural integrity of the camera platform. The vibration that the current design 
+                            creates during robot's acceleration will lag the camera (you can see the effect in Figure 5.1 above), which inconveniently takes more than 3 seconds to stabilise.
+                            Sometimes, the camera board even reset  
+                            <br/> <br/>
+                            Second, the wheel alignment makes driving straight a rarity, so fixing the chassis is also neccessary. Finally, every time the IP address of the control server changes, I have to reflash 
+                            all 3 ESP32s with the new server IP. For this, a simple GUI program on the ILI9341 that allows us to type in the new IP would be less time-consuming.  
+                        </div> <br/>
+                    </div>
+                </section>
+                <footer>
+                    <img 
+                    src="/car/footer.jpg" 
+                    alt="Footer Image" 
+                    className="w-full max-h-[450px] object-cover"
+                    />
+                </footer>
             </div>
         </div>
     );
