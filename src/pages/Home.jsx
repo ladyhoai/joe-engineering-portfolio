@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaInstagram } from "react-icons/fa";
 import React, { useState, useEffect } from "react";
 
 export default function Home() {
@@ -74,7 +74,7 @@ export default function Home() {
                 <div className="flex-1 text-left">
                     <h2 className="text-3xl font-semibold mb-6 ">About Me</h2>
                     <p className="text-xl text-white leading-relaxed">
-                        Hello, my name is Joseph and I am currently a fourth-year mechatronic engineering student at the University of Technology, Sydney.
+                        Good day! My name is Joseph and I am currently a fourth-year mechatronic engineering student at the University of Technology, Sydney.
                         Ever since I was a kid, I have wondered about the prosperous future of our civilisation on planet Earth and among the distant stars! 
                         To contribute myself to the process of turning such exciting scenarios into reality, I have selected engineering to be the career path
                         to dedicate my time and efforts to.<br /><br />
@@ -307,6 +307,17 @@ export default function Home() {
                     title="LinkedIn"
                     >
                     <FaLinkedin className="text-3xl" />
+                    </a>
+
+                    {/* LinkedIn */}
+                    <a
+                    href="https://instagram.com/joey_goodman04"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-700 hover:text-blue-700 transition"
+                    title="Instagram"
+                    >
+                    <FaInstagram className="text-3xl" />
                     </a>
                 </div>
             </section>
