@@ -55,6 +55,7 @@ const interview = `https://www.linkedin.com/posts/xuan-kien-nguyen-7002a0236_jos
 export default function GSV() {
     useEffect(() => {
             window.scrollTo(0, 0); // or: { top: 0, behavior: 'smooth' }
+            document.documentElement.style.backgroundColor = '#242526';
           }, []);
     return (
         <div className="flex min-h-screen">
@@ -99,14 +100,14 @@ export default function GSV() {
                         alt="Profile"
                         className="w-auto h-110 rounded-2xl shadow-lg"
                     />
-                    <h1 className="text-4xl font-bold text-center">Global Surveillance Vehicle</h1>
+                    <h1 className="text-4xl font-bold text-center !text-white">Global Surveillance Vehicle</h1>
                 </div>
 
                 <hr className="border-t-2 border-dotted border-gray-400 my-12 w-full max-w-6xl mx-auto" />
 
                 <section id='Overview' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">1. Overview</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">1. Overview</h2>
                         <div className="text-xl text-white leading-relaxed">
                             The global surveillance vehicle (GSV) is my first robotic project, featuring a 4-wheeled skid-steer robot that is controlled via the cellular network. 
                             On the robot mounted 2 cameras for environment monitoring, a microphone and speaker for audio transmission, and a big LED for general graphic display.
@@ -128,7 +129,7 @@ export default function GSV() {
 
                 <section id='Design' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">2. Overall Design</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">2. Overall Design</h2>
                         <div className="text-xl text-white leading-relaxed">
                             This diagram shows the different components and subsystems of GSV and how they interact with each other. The parts having red font
                             are motors and moving parts, parts within a grey and light yellow box are mounted on the front and back panel, respectively. The arrows indicate the mechanical
@@ -159,8 +160,8 @@ export default function GSV() {
 
                 <section id='Mechanical' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">3. Enclosure & Moving Parts</h2>
-                        <h3 className="text-xl font-semibold mb-6">3.1. Enclosure</h3>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">3. Enclosure & Moving Parts</h2>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">3.1. Enclosure</h3>
                         <div className="text-xl text-white leading-relaxed">
                             The enclosure consists of 6 3D-printed panels with holes to mount the electronics and motors and for cable management. These panels are
                             connected using several 3D-printed L-shaped connectors and standard M4 nuts and bolts that allow for easy assembly and disassembly. This 
@@ -174,7 +175,7 @@ export default function GSV() {
                             And this is the upper section of the robot, with brackets for 2 LCDs, the scissor lift and camera pan and tilt mechanism:
                             <PlyViewer url='/car/top.PLY'fov={18}/> <br/>
                         </div>
-                        <h3 className="text-xl font-semibold mb-6">3.2. Moving Parts</h3>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">3.2. Moving Parts</h3>
                         <div className="text-xl text-white leading-relaxed">
                             Besides 4 wheels, the moving parts on the robot are the scissor lift and camera platform. The lift is driven by a low-power 
                             stepper and a string that is attached to the lift's lower axle, while the camera system consists of 2 small servos for panning and tilting. 
@@ -187,7 +188,7 @@ export default function GSV() {
 
                 <section id='ECU' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">4. Electronic Control Unit</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">4. Electronic Control Unit</h2>
                         <div className="text-xl text-white leading-relaxed">
                             To maintain the small size and reducing the number of wires used, many microcontrollers and drivers are combined into a single PCB - the Electronic Control Unit (ECU).
                             Before this change, cable management was a nightmare, and the router would not fit inside the robot!
@@ -213,13 +214,13 @@ export default function GSV() {
 
                 <section id='Firmware' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">5. Firmware Design</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">5. Firmware Design</h2>
                         <div className="text-xl text-white leading-relaxed">
                             To control all robot's functionalities, we have to program 7 different computers: 3 ESP32s, 2 ESP32 cameras, 1 ATMega328P and 1 ATtiny85, the code can be found on my<ExternalLink href="https://github.com/ladyhoai/ESP32-surveilance-car">Github repository</ExternalLink>.
                             For the MR6400 router, its current configurations provides adequate performance for communication with control, but future improvements can be done to reduce data bottleneck,
                             which sometimes happened during tests.
                         </div> <br/>
-                        <h3 className="text-xl font-semibold mb-6">5.1. ESP32S on the ECU</h3>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">5.1. ESP32S on the ECU</h3>
                         <div className="text-xl text-white leading-relaxed">
                             The ESP-IDF framework is used to develop 2 ECU ESP32s, as we replied on its RTOS functions a lot to schedule tasks, and to maintain the websocket event loop with control station. 
                             You can find the very well-documented API references on espressif's<ExternalLink href="https://docs.espressif.com/projects/esp-idf/en/stable/esp32/get-started/index.html">website</ExternalLink>. 
@@ -260,7 +261,7 @@ export default function GSV() {
                             Side notes: Some functions are a bit long to fit on this page, please refer to GSV's repository (link above) for more details.
                         </div> <br/>
 
-                        <h3 className="text-xl font-semibold mb-6">5.2. ATMega328P on ECU</h3>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">5.2. ATMega328P on ECU</h3>
                         <div className="text-xl text-white leading-relaxed">
                             To reduce the amount of tasks running on the ECU ESP32s, some sensor handling and motor control are performed on this chip. 
                             We used the Arduino framework, and this chip will control 4 DC motors of the skid-steer platform, read the front
@@ -270,7 +271,7 @@ export default function GSV() {
                             These sensor readings will be sent to the ECU ESP32s upon I2C request.
                         </div> <br/>
 
-                        <h3 className="text-xl font-semibold mb-6">5.3. ESP32 Cameras</h3>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">5.3. ESP32 Cameras</h3>
                         <div className="text-xl text-white leading-relaxed">
                             There are 2 ESP32 Cameras on GSV to monitor the front and back view. The firmware between these 2 chips are similar, only the websocket 
                             ports that these chips are connected to must be different. There are 2 main tasks: frame acquiring (the <InlineCode code="void camCB(void* pvParameters)"/> function) 
@@ -279,7 +280,7 @@ export default function GSV() {
                             <Figure src="/car/control.gif" alt="setup" caption="Figure 5.1. Camera monitoring (front & back)"/> 
                         </div> <br/>
 
-                        <h3 className="text-xl font-semibold mb-6">5.4. ATtiny85</h3>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">5.4. ATtiny85</h3>
                         <div className="text-xl text-white leading-relaxed">
                             The only purpose of this chip is to drive the scissor lift stepper motor. The reason this task was not performed on other chips is due to
                             potential electromagnetic interference that badly affects the microphone's signal integrity. Here's the microphone data when I tried to 
@@ -296,7 +297,7 @@ export default function GSV() {
                             pulling the 328P's D2 pin low.
                         </div> <br/>
 
-                        <h3 className="text-xl font-semibold mb-6">5.5. ESP32 for ILI9341 Display</h3>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">5.5. ESP32 for ILI9341 Display</h3>
                         <div className="text-xl text-white leading-relaxed">
                             Due to the heavy computational load of graphic operation, a separate ESP32 is used to control the ILI9341. This
                             display's tasks are to show the booting up graphics, the web server's IP address, internet status and the controller's 
@@ -322,8 +323,8 @@ export default function GSV() {
 
                 <section id='Web' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">6. Web Control Interface</h2>
-                        <h3 className="text-xl font-semibold mb-6">6.1. The Page</h3>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">6. Web Control Interface</h2>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">6.1. The Page</h3>
                         <div className="text-xl text-white leading-relaxed">
                             For everyone to be able to access the robot without requiring extensive setup, a web page and server is the most convenient way due to various useful
                             Javascript libraries that work across different browsers. To control, simply type the server's ip on the search bar and that's it, no app, no custom hardwares.
@@ -334,7 +335,7 @@ export default function GSV() {
                             The user is also able to turn on/off the microphone and speaker. Furthermore, all sensor data will be visualised on the page.
                             <Figure src="/car/page.png" alt="setup" caption="Figure 6.2. Control Panel" width='w-180'/> <br/>
                         </div>
-                        <h3 className="text-xl font-semibold mb-6">6.2. The Server</h3>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">6.2. The Server</h3>
                         <div className="text-xl text-white leading-relaxed">
                             Node.js is used to create the server, whose purpose is to serve the index.html file to the user when they connect. It also establishes and maintains 
                             the websocket connections for all connected clients. As an example, the callback below will listen to the camera feed of the back camera, and stream 
@@ -349,7 +350,7 @@ export default function GSV() {
 
                 <section id='Discussion' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">7. Discussion & Potential Improvements</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">7. Discussion & Potential Improvements</h2>
                         <div className="text-xl text-white leading-relaxed">
                             The GSV was my first robotic project, also my first time designing a PCB and programming ESP32. Needless to say, this experience has built the 
                             important knowledge foundation for a lot of more complicated projects in the future. The testing period was also fun as well! Here's an  

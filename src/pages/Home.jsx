@@ -33,6 +33,10 @@ export default function Home() {
         }
     }, [location]);
 
+    useEffect(() => {
+        document.documentElement.style.backgroundColor = '#242526';
+        }, []);
+
     return (
         <div>
             {/* Nav Bar */}
@@ -61,7 +65,7 @@ export default function Home() {
                         className="w-120 h-64 object-cover object-center"
                     />
                 </div>
-                <h1 className="text-4xl font-bold text-center">Welcome to Joseph's engineering portfolio!</h1>
+                <h1 className="text-4xl font-bold text-center !text-white">Welcome to Joseph's engineering portfolio!</h1>
             </div>
 
             {/* Scroll Spacer */}
@@ -72,7 +76,7 @@ export default function Home() {
             <section className="w-full max-w-6xl mx-auto px-8 flex flex-col md:flex-row items-center md:items-start gap-12">
                 {/* Left Side - Text */}
                 <div className="flex-1 text-left">
-                    <h2 className="text-3xl font-semibold mb-6 ">About Me</h2>
+                    <h2 className="text-3xl font-semibold mb-6 !text-white">About Me</h2>
                     <p className="text-xl text-white leading-relaxed">
                         Good day! My name is Joseph and I am currently a fourth-year mechatronic engineering student at the University of Technology, Sydney.
                         Ever since I was a kid, I have wondered about the prosperous future of our civilisation on planet Earth and among the distant stars! 
@@ -97,7 +101,7 @@ export default function Home() {
             <div className="my-36" />
 
             <section id="projects" className="w-full max-w-6xl mx-auto px-8" style={{ paddingTop: '80px', marginTop: '-80px' }}>
-                <h2 className="text-3xl font-semibold text-left mb-8">Explore my projects!</h2>
+                <h2 className="text-3xl font-semibold text-left mb-8 !text-white">Explore my projects!</h2>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {/* Autonomous chess playing robot */}
@@ -214,11 +218,11 @@ export default function Home() {
 
             <section className="w-full max-w-6xl mx-auto px-8 py-16" id="contact" style={{ paddingTop: '80px', marginTop: '-80px' }}>
 
-                <h2 className="text-3xl font-semibold text-center mb-8">Contact Me</h2>
+                <h2 className="text-3xl font-semibold text-center mb-8 !text-white">Contact Me</h2>
 
                 {/* Right: Contact Form */}
                 <div className="flex justify-center items-center min-h-[300px]">
-                    <form className="space-y-6 border p-6 rounded-xl shadow-md max-w-md w-full" 
+                    <form className="space-y-6 border p-6 rounded-xl shadow-md max-w-md w-full !text-white" 
                             action="https://formspree.io/f/xdkzzevy" method="POST">
                         <div>
                             <label htmlFor="name" className="block text-lg font-medium mb-1">Name</label>
@@ -259,7 +263,7 @@ export default function Home() {
                         <button
                         type="submit"
                         disabled={loading}
-                        className={`relative bg-blue-600 text-white px-6 py-2 rounded-lg transition ${
+                        className={`relative !bg-blue-600 text-white px-6 py-2 rounded-lg transition ${
                             loading ? "opacity-60 cursor-not-allowed" : "hover:bg-blue-700"
                         }`}
                         >

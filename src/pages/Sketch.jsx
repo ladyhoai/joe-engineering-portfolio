@@ -40,6 +40,7 @@ movel(target_pose, a=1.2, v=0.25)`
 export default function Sketch() {
     useEffect(() => {
             window.scrollTo(0, 0); // or: { top: 0, behavior: 'smooth' }
+            document.documentElement.style.backgroundColor = '#242526';
           }, []);
     return (
         <div className="flex min-h-screen">
@@ -71,14 +72,14 @@ export default function Sketch() {
 
                 <div className="mt-20 p-8 space-y-8 flex flex-col items-center">
                     <img src="/Sketch.png" alt="Profile" className="w-auto h-110 rounded-2xl shadow-lg"/>
-                    <h1 className="text-4xl font-bold text-center">Selfie Sketcher</h1>
+                    <h1 className="text-4xl font-bold text-center !text-white">Selfie Sketcher</h1>
                 </div>
 
                 <hr className="border-t-2 border-dotted border-gray-400 my-12 w-full max-w-6xl mx-auto" />
 
                 <section id='Overview' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">1. Overview</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">1. Overview</h2>
                         <div className="text-xl text-white leading-relaxed">
                             This project aimed to use the UR3e robot arm to make high-quality pencil drawings based on a given image. To achive this, first I 
                             converted the original image to G-code, then load a custom URScript file to the robot to execute them. The result was a 2.5 hours (on average)
@@ -101,7 +102,7 @@ export default function Sketch() {
 
                 <section id='gcode' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">2. Image to G-code</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">2. Image to G-code</h2>
                         <div className="text-xl text-white leading-relaxed">
                             In this step, the provided image will be converted to a series of lines with the x-y coordinates of their start and end point, and the pressure 
                             required to draw the lines. This is a math-heavy process, and the phenomenal paper and code of Michal Adamik and his team published on
@@ -120,7 +121,7 @@ export default function Sketch() {
 
                 <section id='control' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">3. Robot Control</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">3. Robot Control</h2>
                         <div className="text-xl text-white leading-relaxed">
                             For this project, we used URScript, a custom programming language developed by Universal Robot, to write the control program in. Another more popular method for controlling 
                             UR3e is using Moveit + ROS for better scalability, however Moveit can't read from the UR3e built-in 6-axis torque sensor, which is a critical component for accurate pressure control.
@@ -150,7 +151,7 @@ export default function Sketch() {
 
                 <section id='cad' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">4. Pencil & Paper Holder</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">4. Pencil & Paper Holder</h2>
                         <div className="text-xl text-white leading-relaxed">
                             A custom simple tool is made to easily attach the pencil on the end effector. It is then 3D-printed with PLA, and a pencil is pressed-fit
                             into the tool, with a side screw to secure it in place.
@@ -168,7 +169,7 @@ export default function Sketch() {
 
                 <section id='result' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">5. Results & Potential Improvements</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">5. Results & Potential Improvements</h2>
                         <div className="text-xl text-white leading-relaxed">
                             In the end, the robot has drawn 6 different pictures, no more due to the robot's inavailability during my university's semester break.
                             All pictures depicted good details of the drawing's subject, however the torque-based control method introduced some inconsistencies in 

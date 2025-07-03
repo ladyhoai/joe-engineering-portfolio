@@ -81,6 +81,7 @@ c. Return best score.`
 export default function FIAR() {
     useEffect(() => {
             window.scrollTo(0, 0); // or: { top: 0, behavior: 'smooth' }
+            document.documentElement.style.backgroundColor = '#242526';
           }, []);
     return (
         <div className="flex min-h-screen">
@@ -125,14 +126,14 @@ export default function FIAR() {
                         alt="Profile"
                         className="w-auto h-110 rounded-2xl shadow-lg"
                     />
-                    <h1 className="text-4xl font-bold text-center">Four in a Row - MATLAB Simulation</h1>
+                    <h1 className="text-4xl font-bold text-center !text-white">Four in a Row - MATLAB Simulation</h1>
                 </div>
 
                 <hr className="border-t-2 border-dotted border-gray-400 my-12 w-full max-w-6xl mx-auto" />
 
                 <section id='Overview' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">1. Overview</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">1. Overview</h2>
                         <div className="text-xl text-white leading-relaxed">
                             This MATLAB simulation demonstrates two robotic arms, UR3E and CRX10IA, collaborating to play a game 
                             of Four in a Row. The robots are programmed to alternate turns, marking Xs and Os on a virtual 8x8 board. 
@@ -167,7 +168,7 @@ export default function FIAR() {
 
                 <section id='RVC' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">2. Robotics Toolbox</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">2. Robotics Toolbox</h2>
                         <div className="text-xl text-white leading-relaxed">
                             For this project, we will be using MATLAB and Peter Corke's <ExternalLink href="https://petercorke.com/toolboxes/robotics-toolbox/">Robotics Toolbox</ExternalLink> for
                             easy kinematic calculations. These are 5 important functions in the toolbox that set the foundation for the system: <br/> <br/>
@@ -282,8 +283,8 @@ export default function FIAR() {
 
                 <section id='traj' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">3. Trajectory Planning</h2>
-                        <h3 className="text-xl font-semibold mb-6">3.1. Types of Trajectory</h3>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">3. Trajectory Planning</h2>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">3.1. Types of Trajectory</h3>
                         <div className="text-xl text-white leading-relaxed">
                             There are 2 techniques used to move the robot from one pose to another: Joint Space Interpolation and Resolved-Rate Motion Control (RRMC).
                             For the first technique, Robotics Toolbox provides the function <InlineCode code="jtraj(q0, qf, m)" language="matlab"/>, which uses
@@ -299,7 +300,7 @@ export default function FIAR() {
                             on each of these waypoint, we can confirm the straight-line trajectory.
                             <Figure src="/4inarow/rrmc.gif" alt="setup" caption="Figure 3.2. Resolved-Rate Motion Control"/> <br/>
                         </div>
-                        <h3 className="text-xl font-semibold mb-6">3.2. Pick and Place</h3>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">3.2. Pick and Place</h3>
                         <div className="text-xl text-white leading-relaxed">
                             Each play will require the robot to reach 8 different goals to move the piece from the piece stack to the desired location. Also, given the piece destination
                             as a pair of (row, col) on the digital game grid, it can be translated to the real-world coordinate by: 
@@ -308,7 +309,7 @@ export default function FIAR() {
                             pick-and-place sequence. This sequence is the same for both CRX10IA and UR3e.
                             <Figure src="/4inarow/pnp.gif" alt="setup" caption="Figure 3.3. Pick and place sequence"/> <br/>
                         </div>
-                        <h3 className="text-xl font-semibold mb-6">3.3. Piece Transfer</h3>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">3.3. Piece Transfer</h3>
                         <div className="text-xl text-white leading-relaxed">
                             Sometimes, the UR3e has to place pieces outside of its reach (500mm). To achieve this, it will require assistance from the CRX with 1250mm of reach by transfering
                             the 'O' piece to the other arm. Similarly, when the CRX has to reach the 8th row counting from its base, it will transfer 'X' to the UR3e to help with placing.
@@ -337,8 +338,8 @@ export default function FIAR() {
 
                 <section id='control' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">4. Control Panel & Board GUI</h2>
-                        <h3 className="text-xl font-semibold mb-6">4.1. Control Panel</h3>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">4. Control Panel & Board GUI</h2>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">4.1. Control Panel</h3>
                         <div className="text-xl text-white leading-relaxed">
                             We also provide an easy-to-use control panel for manually moving the robot whether by changing individual joint or moving the end-effector in Cartesian 
                             space. For the later, we implement a joystick for planar control and the green up-down button for moving respectively in Z. For joint control, 
@@ -363,7 +364,7 @@ export default function FIAR() {
                                 </figure>
                             </div> 
                         </div> <br/>
-                        <h3 className="text-xl font-semibold mb-6">4.2. Board GUI</h3>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">4.2. Board GUI</h3>
                         <div className="text-xl text-white leading-relaxed">
                             For the human player to easily make their moves, instead of typing the move coordinate on the terminal, which is both error-prone and time-consuming, we have a digital
                             8x8 board where they can click to place 'O'. The program will highlight the square that the player's mouse is hovering on as well. To prevent cheating by placing multiple 
@@ -377,14 +378,14 @@ export default function FIAR() {
 
                 <section id='ai' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">5. Minimax Algorithm</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">5. Minimax Algorithm</h2>
                         <div className="text-xl text-white leading-relaxed">
                             To make a response for the player's move, we wrote a simple search algorithm using Minimax and Alpha-Beta Prunning, using a custom reward structure, with a search depth of 4.
                             It is possible to look deeper, however the evaluation time would be exponentially longer. With a worst-case time complexity (no prunning) of <InlineMath math='O(b^d)'/>, where b 
                             is the branching factor, which is 64 in this case (8x8 board) and d is the search depth. Depth 4 is found to be the sweet spot that could balance between runtime and 
                             move quality. 
                         </div> <br/>
-                        <h3 className="text-xl font-semibold mb-6">5.1. Board Evaluation</h3>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">5.1. Board Evaluation</h3>
                         <div className="text-xl text-white leading-relaxed">
                             As we are finding the best move for X, X is selected to be the maximising player and O is the minimising player. The currently implemented algorithm will only return
                             non-zero values when a win is found, not for a potential win setup. Let's look into a code snippet from the program:
@@ -392,7 +393,7 @@ export default function FIAR() {
                             This section will check for a win for X or O in all 8 rows of the board, and we will award higher evaluation score to the faster wins (with the lowest search depth).
                             Similarly, check for wins in columns and all diagonal lines needs to be done. See more in<ExternalLink href="https://github.com/ladyhoai/Tic-Tac-Joe/blob/main/board.m#L112">board.m</ExternalLink>
                         </div> <br/>
-                        <h3 className="text-xl font-semibold mb-6">5.2. Minimax Search</h3>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">5.2. Minimax Search</h3>
                         <div className="text-xl text-white leading-relaxed">
                             <details open className="mb-4">
                                 <summary className="text-white font-semibold mb-2">
@@ -438,15 +439,15 @@ export default function FIAR() {
                 <div className="my-18" />
                 <section id='env' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">6. Environment & Safety</h2>
-                        <h3 className="text-xl font-semibold mb-6">6.1. Modelling</h3>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">6. Environment & Safety</h2>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">6.1. Modelling</h3>
                         <div className="text-xl text-white leading-relaxed">
                             One requirement of the project is to model the surrounding environment where the robots operate, with safety being the highest priority.
                             Safety equipments such as a physical E-STOP, human operators, sirens, fire extinguisers and emergency lights are included in the robot's workspace.
                             We used blender to make the assets, to set up the scene (which is a lot harder using MATLAB) and export it as a single mesh file. 
                             <PlyViewer url='/4inarow/env.ply'fov={15}/>
                         </div> <br/>
-                        <h3 className="text-xl font-semibold mb-6">6.2. Safety: Collision Detection</h3>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">6.2. Safety: Collision Detection</h3>
                         <div className="text-xl text-white leading-relaxed">
                             Another important safety functionality of the system is for the robots to calculate whether it is colliding with the environment. 
                             To do this, we will use 2 loops to check if any link line (start and end point of a link) intersects any triangle in the obstacle's mesh, as
@@ -462,7 +463,7 @@ export default function FIAR() {
 
                 <section id='discussion' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">7. Discussion & Potential Improvements</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">7. Discussion & Potential Improvements</h2>
                         <div className="text-xl text-white leading-relaxed">
                             This is my first MATLAB project with a good amount of complexity and debugging, which definitely is a big boost to my skills with the tool.
                             It helps me realise the power of MATLAB and its extensive support for developing control system and robotics application. This project ends up

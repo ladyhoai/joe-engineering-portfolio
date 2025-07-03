@@ -7,6 +7,7 @@ import ExternalLink from '../components/ExternalLink';
 export default function Arm() {
     useEffect(() => {
             window.scrollTo(0, 0); // or: { top: 0, behavior: 'smooth' }
+            document.documentElement.style.backgroundColor = '#242526';
           }, []);
     return (
         <div className="flex min-h-screen">
@@ -42,7 +43,7 @@ export default function Arm() {
                         alt="Profile"
                         className="w-auto h-110 rounded-2xl shadow-lg"
                     />
-                    <h1 className="text-4xl font-bold text-center">5 DOFs Robot Arm (Not Completed)</h1>
+                    <h1 className="text-4xl font-bold text-center !text-white">5 DOFs Robot Arm (Not Completed)</h1>
                 </div>
 
                 <hr className="border-t-2 border-dotted border-gray-400 my-12 w-full max-w-6xl mx-auto" />
@@ -50,7 +51,7 @@ export default function Arm() {
                 {/* Overview and gif */}
                 <section id='Overview' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">1. Overview</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">1. Overview</h2>
                         <div className="text-xl text-white leading-relaxed">
                             The 5 DOFs robot arm was made as a replacement for the UR3e to perform my personal project: Selfie Sketching, in the comfort of my home.
                             The arm was mostly 3D-printed in PLA, a small amount of important structural components used aluminium tubes. The current control software
@@ -69,12 +70,12 @@ export default function Arm() {
                 <div className="my-18" />
                 <section id='Link' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">2. Links Design</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">2. Links Design</h2>
                         <div className="text-xl text-white leading-relaxed">
                             Side note: The robot has 5 joints in total, however, the mechanical design of the last 2 joints is currently unreliable and work needs to be
                             done to improve them, therefore I won't document these joints.
                         </div> <br/>
-                        <h3 className="text-xl font-semibold mb-6">2.1. Base Link</h3>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">2.1. Base Link</h3>
                         <div className="text-xl text-white leading-relaxed">
                             The rotating base link has a 3D-printed 120-tooth GT2 pulley driven by a belt attached to a NEMA17 stepper motor. 
                             This pulley will hold the entire weight of other links on the arm. <br/><br/>
@@ -106,7 +107,7 @@ export default function Arm() {
                                 </figure>
                             </div> <br/>
 
-                            <h3 className="text-xl font-semibold mb-6">2.2. Shoulder Link (Link 2)</h3>
+                            <h3 className="text-xl font-semibold mb-6 !text-white">2.2. Shoulder Link (Link 2)</h3>
                             <div className="text-xl text-white leading-relaxed">
                                 The shoulder link will have 2 identical panels that are connected to a single aluminium rod, and this rod is driven by a 
                                 higher torque NEMA17 with a 5:1 gear ratio via a timing belt system similar to the base link. 
@@ -121,7 +122,7 @@ export default function Arm() {
                                 <StlViewer url="/arm/Arm1Left2.STL" fov={10}/>
                             </div> <br/>
 
-                            <h3 className="text-xl font-semibold mb-6">2.3. Elbow Link (Link 3)</h3>
+                            <h3 className="text-xl font-semibold mb-6 !text-white">2.3. Elbow Link (Link 3)</h3>
                             <div className="text-xl text-white leading-relaxed">
                                 This third link has the same axis of rotation as Link 2. However, it has a smaller NEMA17 as it is closer to the load. This video shows the 
                                 first 3 links work together. <br/> <br/>
@@ -146,7 +147,7 @@ export default function Arm() {
 
                 <section id='Control' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">3. Control Software</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">3. Control Software</h2>
                         <div className="text-xl text-white leading-relaxed">
                             For this project, we used MATLAB to generate the control commands for complex trajectories, which will be sent to an Arduino to control the 
                             steppers. The stepper drivers used were DRV8825, similar to the ones in my Warman robot. These programs can be found
@@ -158,7 +159,7 @@ export default function Arm() {
 
                 <section id='Discussion' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">4. Discussion & Potential Improvements</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">4. Discussion & Potential Improvements</h2>
                         <div className="text-xl text-white leading-relaxed">
                             Unfortunately, this project is not completed yet at the time of this post. There have been both software (the control loop doesn't run at a fast enough rate) and
                             hardware (links not rigid enough, lack of encoders, etc...) issues. I hope I can revisit this project at some point in the future when time and finance allow!

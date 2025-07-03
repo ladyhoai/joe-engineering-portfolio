@@ -37,6 +37,7 @@ const holoDrive = `while (PINK != 191) { // 191 means Stop
 export default function Warman() {
     useEffect(() => {
             window.scrollTo(0, 0); // or: { top: 0, behavior: 'smooth' }
+            document.documentElement.style.backgroundColor = '#242526';
           }, []);
           
     return (
@@ -83,7 +84,7 @@ export default function Warman() {
                             className="w-auto h-110 rounded-2xl shadow-lg"
                         />
 
-                    <h1 className="text-4xl font-bold text-center">Warman Challenge 2024 Robot</h1>
+                    <h1 className="text-4xl font-bold text-center !text-white">Warman Challenge 2024 Robot</h1>
                 </div>
 
                 <hr className="border-t-2 border-dotted border-gray-400 my-12 w-full max-w-6xl mx-auto" />
@@ -91,7 +92,7 @@ export default function Warman() {
                 {/* Overview and gif */}
                 <section id='Overview' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">1. Overview</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">1. Overview</h2>
                         <div className="text-xl text-white leading-relaxed">
                             The Warman Challenge is a competition held yearly by Weir Minerals Australia
                             Ltd. The participants (mostly second-year engineering students) will have to
@@ -127,7 +128,7 @@ export default function Warman() {
 
                 <section id='Design' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">2. Final Design</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">2. Final Design</h2>
                         <div className="text-xl text-white leading-relaxed">
                             The robot, which we named "Cat Bot" was equipped with 2 large brushes, driven by 2 geared NEMA17s, to ensure the ball could be picked up even when the robot’s alignment 
                             with the ball was not ideal, providing high tolerance against positional errors. For localisation, the flatness of the Warman track provided an excellent working 
@@ -143,7 +144,7 @@ export default function Warman() {
 
                 <section id='Funnel' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">3. Ball Catcher</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">3. Ball Catcher</h2>
                         <div className="text-xl text-white leading-relaxed">
                             To store the balls after being collected, we decided to use a funnel-like design so that the balls could be 
                             effortlessly released when needed. Also, it could interface with the pick-up mechanism with no moving parts. 
@@ -187,7 +188,7 @@ export default function Warman() {
 
                 <section id='Stepper' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">4. Stepper Config</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">4. Stepper Config</h2>
                         <div className="flex flex-col md:flex-row items-center md:items-start gap-12 w-full">
                             <div className="flex-1 text-left">
                                 <p className="text-xl text-white leading-relaxed">
@@ -202,7 +203,7 @@ export default function Warman() {
                         </div> <br/>
                         
                         <div className="text-xl text-white leading-relaxed">
-                            <h3 className="text-xl font-semibold mb-6">4.1. Current Limit & Microstepping</h3>
+                            <h3 className="text-xl font-semibold mb-6 !text-white">4.1. Current Limit & Microstepping</h3>
                             The following formula shows the relationship between the reference voltage (voltage between the potentiometer 
                             and ground) and the current limit of DRV8825: 
                             <BlockMath math='I_{limit} = 2V_{REF}'/>
@@ -213,7 +214,7 @@ export default function Warman() {
                             we increase the motor’s step-per-revolution (normally 200) by a factor of 32. This results in smoother, 
                             quieter operation and more precise control due to the finer resolution of each step, allowing the motor to 
                             make smaller rotational changes. <br/> <br/>
-                            <h3 className="text-xl font-semibold mb-6">4.2. Dead-Reckoning</h3>
+                            <h3 className="text-xl font-semibold mb-6 !text-white">4.2. Dead-Reckoning</h3>
                             We used dead-reckoning to perform the <InlineMath math='180^\circ'/> rotation as can be seen at the 0:55 mark
                             of our demonstration video above, as using a magnetometer to sense yaw requires precise calibration and shielding 
                             for it to function correctly, which is complicated and time-consuming. <br/><br/>
@@ -244,8 +245,8 @@ export default function Warman() {
 
                 <section id='Software' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">5. Navigation Software Development</h2>
-                        <h3 className="text-xl font-semibold mb-6">5.1. Mission Sequence & State Diagram</h3>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">5. Navigation Software Development</h2>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">5.1. Mission Sequence & State Diagram</h3>
                         <div className="text-xl text-white leading-relaxed">
                             According to the Warman 2024 rules, it was allowed to position the robot anywhere on the track. Therefore, we chose 
                             the top left corner as the starting point with the robot facing the tennis ball, and sequentially reached 7 other goals (Figure 5.1). 
@@ -253,7 +254,7 @@ export default function Warman() {
                             The robot executed the mission according to this state diagram:   
                             <Figure src="/warman/stateMachine.png" alt="setup" caption="Figure 5.2. State diagram for the Warman mission" width='w-180'/> <br/> 
                         </div>
-                        <h3 className="text-xl font-semibold mb-6">5.2. Sensors & Computing Units</h3>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">5.2. Sensors & Computing Units</h3>
                         <Figure src="/warman/circuit.png" alt="setup" caption="Figure 5.3. Final electrical system" width='w-180'/> <br/> 
                         <div className="text-xl text-white leading-relaxed">
                             There are 2 computing units on the robot - an Arduino Mega to drive the motor system consisting of 6 NEMA17s and 2 35kg servos, and 
@@ -274,7 +275,7 @@ export default function Warman() {
                         </div>
                         <br/>
 
-                        <h3 className="text-xl font-semibold mb-6">5.3. Control Software</h3>
+                        <h3 className="text-xl font-semibold mb-6 !text-white">5.3. Control Software</h3>
 
                         <div className="text-xl text-white leading-relaxed">
                             You can view the source code for our robot on<ExternalLink href="https://github.com/ladyhoai/MDFS2024-CatBot">GitHub</ExternalLink>.
@@ -405,7 +406,7 @@ export default function Warman() {
 
                 <section id='Discussion' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                     <div className="text-left">
-                        <h2 className="text-4xl font-semibold mb-6">6. Discussion & Potential Improvements</h2>
+                        <h2 className="text-4xl font-semibold mb-6 !text-white">6. Discussion & Potential Improvements</h2>
                         <div className="text-xl text-white leading-relaxed">
                             After a period of constant hard work, seeing the end result was satisfying. The studio has provided me with an 
                             excellent opportunity to improve my leadership and teamwork skills. I acquired a better understanding of how a 

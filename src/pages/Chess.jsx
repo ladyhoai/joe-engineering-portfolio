@@ -37,6 +37,7 @@ double y_from_base = -(H1_Y + dx * sin(yaw) + dy * cos(yaw));`
 export default function Chess() {
     useEffect(() => {
         window.scrollTo(0, 0); // or: { top: 0, behavior: 'smooth' }
+        document.documentElement.style.backgroundColor = '#242526';
       }, []);
     
     return (
@@ -80,7 +81,7 @@ export default function Chess() {
                     <div className="flex flex-col items-center">
                         <img src="/chessImg/Cover.jpeg" alt="Profile" className="w-auto h-110 rounded-2xl shadow-lg"/>
                            
-                        <h1 className="text-4xl font-bold text-center mt-8">The Autonomous Chess Cobot</h1>
+                        <h1 className="text-4xl font-bold text-center mt-8 !text-white">The Autonomous Chess Cobot</h1>
                     </div>
 
                     <hr className="border-t-2 border-dotted border-gray-400 my-12 w-full max-w-6xl mx-auto" />
@@ -88,7 +89,7 @@ export default function Chess() {
                     {/* Overview and gif */}
                     <section id='Overview' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                         <div className="text-left">
-                            <h2 className="text-4xl font-semibold mb-6">1. Overview</h2>
+                            <h2 className="text-4xl font-semibold mb-6 !text-white">1. Overview</h2>
                             <div className="text-xl text-white leading-relaxed">
                                 The chess-playing system was built by my team of 4 for the Robotic Studio 2 subject at UTS. 
                                 It used the UR3e robot arm, computer vision, chess AI, and a GUI powered by the Raspberry Pi 5, 
@@ -118,7 +119,7 @@ export default function Chess() {
                     <div className="my-18" />
 
                     <section id='Setup' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
-                        <h2 className="text-4xl font-semibold mb-6 text-left w-full">2. Hardware Setup & System Architecture</h2>
+                        <h2 className="text-4xl font-semibold mb-6 text-left w-full !text-white">2. Hardware Setup & System Architecture</h2>
                         <div className="flex flex-col md:flex-row items-center md:items-start gap-12 w-full">
                             <div className="flex-1 text-left">
                                 <div className="text-xl text-white leading-relaxed">
@@ -170,7 +171,7 @@ export default function Chess() {
 
                     <section id='Stockfish' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                         <div className="text-left w-full">
-                            <h2 className="text-4xl font-semibold mb-6">3. GUI & Stockfish ROS 2 Node</h2>
+                            <h2 className="text-4xl font-semibold mb-6 !text-white">3. GUI & Stockfish ROS 2 Node</h2>
                             <div className="text-xl text-white leading-relaxed">
                                 The graphical user interface (GUI) is developed using C++ and SFML, featuring standard chess piece designs and 
                                 user-friendly gameplay assistance tools, such as legal move indicators. This GUI is then integrated into the 
@@ -200,7 +201,7 @@ export default function Chess() {
 
                     <section id='Control' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                         <div className="text-left w-full">
-                            <h2 className="text-4xl font-semibold mb-6">4. UR3e Robot Control Node</h2>
+                            <h2 className="text-4xl font-semibold mb-6 !text-white">4. UR3e Robot Control Node</h2>
                             <p className="text-xl text-white leading-relaxed">
                                 My task is to develop a simple controller (UR3e control node) to
                                 execute the piece move request sent from the Stockfish node (Figure 3.3). To
@@ -210,7 +211,7 @@ export default function Chess() {
                                 whether the requested move is a normal or capture move. <br/>
                             </p> <br/>
                             
-                            <h3 className="text-xl font-semibold mb-6">4.1. Control System Design</h3>
+                            <h3 className="text-xl font-semibold mb-6 !text-white">4.1. Control System Design</h3>
                             <div className="text-xl text-white leading-relaxed">
                                 Due to the nature of the project, most of the motions use straight-line
                                 trajectories, which can be easily computed by using Moveit’s built-in function: <br/>
@@ -241,8 +242,8 @@ export default function Chess() {
                                 <CodeBlock code={jointAngle}/>
                                 To execute these trajectories (Cartesian and joint control), we will first plan them, then execute as follows: <br/>
                                 <CodeBlock code={CartesianAndJointAngleMove}/>
-                            </div>
-                            <h3 className="text-xl font-semibold mb-6">4.2. Adapting to Varying Piece Heights.</h3>
+                            </div> <br/>
+                            <h3 className="text-xl font-semibold mb-6 !text-white">4.2. Adapting to Varying Piece Heights.</h3>
                             <div className="text-xl text-white leading-relaxed">
                                 As every piece has a different height, with the pawn being the shortest and the king
                                 being the tallest, we need to create a lookup table using 
@@ -255,8 +256,8 @@ export default function Chess() {
                                 <CodeBlock code={moveRequest}/>
                                 With the piece information included (‘q’ and ‘N’ in this case), we can use the lookup table to set
                                 the pick and place height accordingly.
-                            </div>
-                            <h3 className="text-xl font-semibold mb-6">4.3. Converting chess coordinates to world coordinates.</h3>
+                            </div> <br/>
+                            <h3 className="text-xl font-semibold mb-6 !text-white">4.3. Converting chess coordinates to world coordinates.</h3>
                             <div className="text-xl text-white leading-relaxed">
 
                                 After receiving the move request from the Stockfish node, we will need to
@@ -314,7 +315,7 @@ export default function Chess() {
 
                     <section id='Vision' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                         <div className="text-left w-full">
-                            <h2 className="text-4xl font-semibold mb-6">5. Computer Vision for Player Move Detection</h2>
+                            <h2 className="text-4xl font-semibold mb-6 !text-white">5. Computer Vision for Player Move Detection</h2>
                             <div className="text-xl text-white leading-relaxed">
                                 In order for the robotic system to autonomously play chess reliably, it requires the
                                 capability to detect legal moves made on the physical board by the human player. To
@@ -480,7 +481,7 @@ export default function Chess() {
 
                     <section id='Discussion' className="w-full max-w-6xl mx-auto px-8 flex flex-col items-center gap-12" style={{ paddingTop: '80px', marginTop: '-80px' }}>
                         <div className="text-left w-full">
-                            <h2 className="text-4xl font-semibold mb-6">6. Discussion & Potential Improvements</h2>
+                            <h2 className="text-4xl font-semibold mb-6 !text-white">6. Discussion & Potential Improvements</h2>
                             <div className="text-xl text-white leading-relaxed">
                                 It has been a great opportunity for me to work on the incredible UR3e provided to us by the UTS Mechatronic Lab.
                                 I would also like to thank my team: Cameron, Charles and Fergus for putting in efforts to finish & polish their 
